@@ -1,0 +1,34 @@
+
+Wings_anim.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Wings/Wing_L
+  rotate: false
+  xy: 2, 678
+  size: 336, 336
+  orig: 336, 336
+  offset: 0, 0
+  index: -1
+Wings/Wing_R
+  rotate: false
+  xy: 2, 340
+  size: 336, 336
+  orig: 336, 336
+  offset: 0, 0
+  index: -1
+Wings/Wings_L_1
+  rotate: false
+  xy: 340, 678
+  size: 336, 336
+  orig: 336, 336
+  offset: 0, 0
+  index: -1
+Wings/Wings_R_1
+  rotate: false
+  xy: 2, 2
+  size: 336, 336
+  orig: 336, 336
+  offset: 0, 0
+  index: -1

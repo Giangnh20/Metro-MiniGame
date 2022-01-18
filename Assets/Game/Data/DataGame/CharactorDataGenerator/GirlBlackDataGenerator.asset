@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d05f1d74ee0fed4ca3442e2f9538b0f, type: 3}
+  m_Name: GirlBlackDataGenerator
+  m_EditorClassIdentifier: 
+  Etypecharactor: 1
+  Eskincolor: 2
+  Body: G_Body_Skin_Black
+  BodyComponent:
+  - G_Body_Skin_Black
+  - G_Head_Skin_Black
+  - H_Foot_Skin_Black
+  - Hand_L_Black
+  - Hand_R_Black
+  - Leg_Skin_Black
+  Face: G_Face_1
+  Hair: G_Hair_1
+  HairLong: G_Hair_Long_1
+  Top: G_Top_1
+  TopComponent:
+  - G_Top_L_1
+  - G_Top_R_1
+  Bottom: G_Bot_A
+  BottomComponent:
+  - G_Bot_L_A
+  - G_Bot_R_A
+  shoes: G_Shoes_L_1
+  Accessories: 
+  Vehicle: 
+  wings: 
+  tail: 

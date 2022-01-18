@@ -1,0 +1,20 @@
+
+Coat_Anim.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Coat/Coat_1
+  rotate: false
+  xy: 2, 240
+  size: 236, 236
+  orig: 236, 236
+  offset: 0, 0
+  index: -1
+Coat/Coat_2
+  rotate: false
+  xy: 2, 2
+  size: 236, 236
+  orig: 236, 236
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5756321631436644924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5756321631436644925}
+  - component: {fileID: 5756321631436644802}
+  m_Layer: 0
+  m_Name: GirlDataEditLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5756321631436644925
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5756321631436644924}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5756321631436644802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5756321631436644924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 170d2fee691b7e146b860f702b7b6b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dataCharactor: {fileID: 11400000, guid: e67cb59d37438a34ea2541e5f0e9192d, type: 2}
+  url: Characters_MetroVerse\Character Animation\Character Animation Export\Body\G\G_Body_Skin_Yellow
+  UrlBodyAnimation: Characters_MetroVerse\Character Animation\Character Animation
+    Export\Body\G\G_Body_Skin_Yellow_cpn
+  UrlFace: Characters_MetroVerse\Character Animation\Character Animation Export\Face\G
+  UrlHair: Characters_MetroVerse\Character Animation\Character Animation Export\Hair\G\Hair
+  UrlHairLong: Characters_MetroVerse\Character Animation\Character Animation Export\Hair\G\Hair_Long
+  UrlUp: Characters_MetroVerse\Character Animation\Character Animation Export\Top\G\G_Top_9
+  UrlUpAnimation: Characters_MetroVerse\Character Animation\Character Animation Export\Top\G\G_Top_9_cpn
+  UrlDown: Characters_MetroVerse\Character Animation\Character Animation Export\Bottom\G\G_Bot_4
+  UrlDownAnimation: Characters_MetroVerse\Character Animation\Character Animation
+    Export\Bottom\G\G_Bot_4_cpn
+  UrlAccessoires: Characters_MetroVerse\Character Animation\Character Animation Export\Accessories\G
+  UrlVehicle: Characters_MetroVerse\Character Animation\Character Animation Export\Vehicles
+  UrlShoes: Characters_MetroVerse\Character Animation\Character Animation Export\Shoes\G\G_Shoes_4
+  UrlShoesAnimation: Characters_MetroVerse\Character Animation\Character Animation
+    Export\Shoes\G\G_Shoes_3_cpn
+  UrlWings: Characters_MetroVerse\Character Animation\Character Animation Export\Wings
+  UrlTails: Characters_MetroVerse\Character Animation\Character Animation Export\Tail
+  UrlWeapon_L: Characters_MetroVerse\Character Animation\Character Animation Export\Hand_L_Equip\B
+  UrlWeapon_R: Characters_MetroVerse\Character Animation\Character Animation Export\Hand_R_Equip\B

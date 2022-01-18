@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d05f1d74ee0fed4ca3442e2f9538b0f, type: 3}
+  m_Name: BoyBlackDataGenerator
+  m_EditorClassIdentifier: 
+  Etypecharactor: 0
+  Eskincolor: 2
+  Body: Body_Skin_Black
+  BodyComponent:
+  - B_Body_Skin_Black
+  - B_Head_Skin_Black
+  - Foot_Skin_Black
+  - Hand_L_Black
+  - Hand_R_Black
+  - Leg_Skin_Black
+  Face: B_Face_1
+  Hair: B_Hair_1
+  HairLong: B_Hair_Long_1
+  Top: B_Top_1
+  TopComponent:
+  - B_Top_L_1
+  - B_Top_R_1
+  Bottom: B_Bot_1
+  BottomComponent:
+  - B_Bot_L_1
+  - B_Bot_R_1
+  shoes: B_Shoes_L_1
+  Accessories: B_Acc_1
+  Vehicle: Car_1
+  wings: Wings_1
+  tail: Tail_1

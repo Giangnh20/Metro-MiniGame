@@ -1,0 +1,20 @@
+
+Tail_anim.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Wings/Tail_1
+  rotate: false
+  xy: 2, 340
+  size: 336, 336
+  orig: 336, 336
+  offset: 0, 0
+  index: -1
+Wings/Tail_2
+  rotate: false
+  xy: 2, 2
+  size: 336, 336
+  orig: 336, 336
+  offset: 0, 0
+  index: -1

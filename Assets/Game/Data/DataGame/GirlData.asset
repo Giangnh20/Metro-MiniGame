@@ -1,0 +1,235 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 507f87273d8724b4081a9a0630c537cc, type: 3}
+  m_Name: GirlData
+  m_EditorClassIdentifier: 
+  Etypecharactor: 1
+  bodyItemStyles:
+  - ID: G_Body_Skin_White
+    Sprite: {fileID: 21300000, guid: cec29a7366c0f194b84fe88677ded94e, type: 3}
+    _itemsItemChildDetails:
+    - ID: G_Body_Skin_White
+      Sprite: {fileID: 21300000, guid: aa98b9a97c87f5f4fb3fbdd141106f9f, type: 3}
+    - ID: G_Head_Skin_White
+      Sprite: {fileID: 21300000, guid: cbde1d706ee3950449fbaf5f342514b7, type: 3}
+    - ID: H_Foot_Skin_White
+      Sprite: {fileID: 21300000, guid: 833791978720e06499331bfcbe69d07d, type: 3}
+    - ID: Hand_L_White
+      Sprite: {fileID: 21300000, guid: 2aa56f505e718d24c8b4d0ac19e4857c, type: 3}
+    - ID: Hand_R_White
+      Sprite: {fileID: 21300000, guid: c0def0da9f8fd2c40ab3eefbb26e2ba5, type: 3}
+    - ID: Leg_Skin_White
+      Sprite: {fileID: 21300000, guid: 3ce7c6d4a6f5ecb468fcbe96137ea334, type: 3}
+  - ID: G_Body_Skin_Black
+    Sprite: {fileID: 21300000, guid: b4948e3644bc8e14d920b85d87df6445, type: 3}
+    _itemsItemChildDetails:
+    - ID: G_Body_Skin_Black
+      Sprite: {fileID: 21300000, guid: fb53267ce6894994db743411c664ce9f, type: 3}
+    - ID: G_Head_Skin_Black
+      Sprite: {fileID: 21300000, guid: 906cf2cd35bda3a48b121410a3762d0d, type: 3}
+    - ID: H_Foot_Skin_Black
+      Sprite: {fileID: 21300000, guid: 0910d617503494b4f8219e8bc96bb5d9, type: 3}
+    - ID: Hand_L_Black
+      Sprite: {fileID: 21300000, guid: 808cd19765575494286ef0b2edf3868b, type: 3}
+    - ID: Hand_R_Black
+      Sprite: {fileID: 21300000, guid: a5f83b6279eb60648b6bc594d567f5c6, type: 3}
+    - ID: Leg_Skin_Black
+      Sprite: {fileID: 21300000, guid: 12bdf26b2cbdf07449cad23ca8f5c8fa, type: 3}
+  - ID: G_Body_Skin_Yellow
+    Sprite: {fileID: 21300000, guid: 94396864dcab4bf419aeb789850a672e, type: 3}
+    _itemsItemChildDetails:
+    - ID: G_Body_Skin_Yellow
+      Sprite: {fileID: 21300000, guid: 961defca00a68f9418612aefe8056628, type: 3}
+    - ID: G_Head_Skin_Yellow
+      Sprite: {fileID: 21300000, guid: 5f89ef4fd655fc84681b89aed2231083, type: 3}
+    - ID: H_Foot_Skin_Yellow
+      Sprite: {fileID: 21300000, guid: 815097df01204344b8d6392ed266df05, type: 3}
+    - ID: Hand_L_Yellow
+      Sprite: {fileID: 21300000, guid: 0fdb4ffaad594074a8e8d9894264064e, type: 3}
+    - ID: Hand_R_Yellow
+      Sprite: {fileID: 21300000, guid: 6dff611c36ab97c49af16d46abf332dc, type: 3}
+    - ID: Leg_Skin_Yellow
+      Sprite: {fileID: 21300000, guid: b51420aa03eb3e1458916975784ce1a1, type: 3}
+  FacesItemStyles:
+  - ID: G_Face_0
+    Sprite: {fileID: 21300000, guid: 3b024a1b67aacb14082c6a6e92fc1533, type: 3}
+    _itemsItemChildDetails: []
+  - ID: G_Face_1
+    Sprite: {fileID: 21300000, guid: 025d74bac7a508c49a8f9e8862683010, type: 3}
+    _itemsItemChildDetails: []
+  - ID: G_Face_13
+    Sprite: {fileID: 21300000, guid: 00ab6a4ccc6a658438eadfcf39cc6451, type: 3}
+    _itemsItemChildDetails: []
+  - ID: G_Face_15
+    Sprite: {fileID: 21300000, guid: cbf7731c63c471e4286960e7882222ce, type: 3}
+    _itemsItemChildDetails: []
+  - ID: G_Face_19
+    Sprite: {fileID: 21300000, guid: 6a8bea74152ee5f4b9c5ef4ffc81dc4e, type: 3}
+    _itemsItemChildDetails: []
+  - ID: G_Face_20
+    Sprite: {fileID: 21300000, guid: 86025b2e9ae72f64a949f6b8e4b62a78, type: 3}
+    _itemsItemChildDetails: []
+  - ID: G_Face_6
+    Sprite: {fileID: 21300000, guid: f5c9c96c0c32685449ac191809f41a87, type: 3}
+    _itemsItemChildDetails: []
+  - ID: G_Face_8
+    Sprite: {fileID: 21300000, guid: 580fa36ebb9523d4c8fe99b3de4c565a, type: 3}
+    _itemsItemChildDetails: []
+  hairItemStyles:
+  - ID: G_Hair_1
+    Sprite: {fileID: 21300000, guid: 3b3fd2405463b5949b18bdc931e53e4e, type: 3}
+    _itemsItemChildDetails: []
+  - ID: G_Hair_12
+    Sprite: {fileID: 21300000, guid: 4eabcfc60c0c48f40839a533b26bf84b, type: 3}
+    _itemsItemChildDetails: []
+  - ID: G_Hair_3
+    Sprite: {fileID: 21300000, guid: e7f8aec438d2c5d4e8f03f120e49a3f2, type: 3}
+    _itemsItemChildDetails: []
+  - ID: G_Hair_7
+    Sprite: {fileID: 21300000, guid: e50a883ace198d24180540779fc8c12a, type: 3}
+    _itemsItemChildDetails: []
+  - ID: G_Hair_8
+    Sprite: {fileID: 21300000, guid: 6966294d393bf1d48be7ca7d8fe55196, type: 3}
+    _itemsItemChildDetails: []
+  - ID: G_Hair_9
+    Sprite: {fileID: 21300000, guid: a6538a94401da514e8660406e67b92fd, type: 3}
+    _itemsItemChildDetails: []
+  hairLongItemStyles:
+  - ID: G_Hair_Long_1
+    Sprite: {fileID: 21300000, guid: c4ce99c900d725846bf828df9552195a, type: 3}
+    _itemsItemChildDetails: []
+  topItemStyles:
+  - ID: G_Top_0
+    Sprite: {fileID: 21300000, guid: f130335294b327744bca1216b807973e, type: 3}
+    _itemsItemChildDetails:
+    - ID: G_Top_L_0
+      Sprite: {fileID: 21300000, guid: 06dd5791606b6084b9721ebf4a4eb1cc, type: 3}
+    - ID: G_Top_R_0
+      Sprite: {fileID: 21300000, guid: 7c9577a8b20294046b74be64e1da2b68, type: 3}
+  - ID: G_Top_1
+    Sprite: {fileID: 21300000, guid: 3f20ef55f802f8041a8c61e8d60923d0, type: 3}
+    _itemsItemChildDetails:
+    - ID: G_Top_L_1
+      Sprite: {fileID: 21300000, guid: a0f355654ec48834aa452a48a6d93761, type: 3}
+    - ID: G_Top_R_1
+      Sprite: {fileID: 21300000, guid: f1af534b87ad23d46b0f2104f5b4fa37, type: 3}
+  - ID: G_Top_2
+    Sprite: {fileID: 21300000, guid: 435545cafe3910047a9e46dd20bacb0f, type: 3}
+    _itemsItemChildDetails:
+    - ID: G_Top_L_2
+      Sprite: {fileID: 21300000, guid: d950178ea70eec048af34b05ceb9d910, type: 3}
+    - ID: G_Top_R_2
+      Sprite: {fileID: 21300000, guid: 9969df8b13c490344a075f4c2597ec6c, type: 3}
+  - ID: G_Top_3
+    Sprite: {fileID: 21300000, guid: 61af4c3c3e3ed964cb35b6154f41dc13, type: 3}
+    _itemsItemChildDetails:
+    - ID: G_Top_L_3
+      Sprite: {fileID: 21300000, guid: 5252864edd6608b4f8e988d207de2325, type: 3}
+    - ID: G_Top_R_3
+      Sprite: {fileID: 21300000, guid: 0f7b10979308b754fb04d09f61db1825, type: 3}
+  - ID: G_Top_5
+    Sprite: {fileID: 21300000, guid: 2724e2e9aa681e64e81bbfd34eca73d6, type: 3}
+    _itemsItemChildDetails:
+    - ID: G_Top_L_5
+      Sprite: {fileID: 21300000, guid: 5e7577c316e511f469256c09b8fb49ef, type: 3}
+    - ID: G_Top_R_5
+      Sprite: {fileID: 21300000, guid: 009a2b9d923bea8419ac676385f333a1, type: 3}
+  - ID: G_Top_6
+    Sprite: {fileID: 21300000, guid: 10205618e15b8e246a5218fd7723132b, type: 3}
+    _itemsItemChildDetails:
+    - ID: G_Top_L_6
+      Sprite: {fileID: 21300000, guid: 989e2ee22728c23479186bcba6c990b7, type: 3}
+    - ID: G_Top_R_6
+      Sprite: {fileID: 21300000, guid: be574db30fd3cb54baa05f2606b7e122, type: 3}
+  - ID: G_Top_9
+    Sprite: {fileID: 21300000, guid: ebce80440426202408ac0ccab4082484, type: 3}
+    _itemsItemChildDetails:
+    - ID: G_Top_L_9
+      Sprite: {fileID: 21300000, guid: 669b55cc95153ae408dfa15122b0de27, type: 3}
+    - ID: G_Top_R_9
+      Sprite: {fileID: 21300000, guid: be31488a3e183714faf8b5a6e7bc089d, type: 3}
+  bottomItemStyles:
+  - ID: G_Bot_A
+    Sprite: {fileID: 21300000, guid: f58028d9ea1462b409ea6a0774934586, type: 3}
+    _itemsItemChildDetails:
+    - ID: G_Bot_L_A
+      Sprite: {fileID: 21300000, guid: 764198b4ab8ed5841b1fe0fdee3dfdfb, type: 3}
+    - ID: G_Bot_R_A
+      Sprite: {fileID: 21300000, guid: 726d5cd9768534945b9fc7f30dcdd48a, type: 3}
+  - ID: G_Bot_0
+    Sprite: {fileID: 21300000, guid: 46d3b0ed27499e74dac0918d0b54496c, type: 3}
+    _itemsItemChildDetails:
+    - ID: G_Bot_L_0
+      Sprite: {fileID: 21300000, guid: 501c10236b7876e46bbd84e2fb9c2c97, type: 3}
+    - ID: G_Bot_R_0
+      Sprite: {fileID: 21300000, guid: b483d046829ab5a458aec78284d344a5, type: 3}
+  - ID: G_Bot_1
+    Sprite: {fileID: 21300000, guid: 6d73317e4dc956e4eb208260791a6d38, type: 3}
+    _itemsItemChildDetails:
+    - ID: G_Bot_L_1
+      Sprite: {fileID: 21300000, guid: 6e8695b15df625a45afe4a9d60cf580b, type: 3}
+    - ID: G_Bot_R_1
+      Sprite: {fileID: 21300000, guid: 3ad1c0b17159d9a439455c73d4fd37a9, type: 3}
+  - ID: G_Bot_3
+    Sprite: {fileID: 21300000, guid: 2038554dfe05317428ad6012aad3c88d, type: 3}
+    _itemsItemChildDetails:
+    - ID: G_Bot_L_3
+      Sprite: {fileID: 21300000, guid: 3f1e5e2abfba8ce42b6c477c4aa21072, type: 3}
+    - ID: G_Bot_R_3
+      Sprite: {fileID: 21300000, guid: 04a0b00e414e5c749aa191cb61c6d0c4, type: 3}
+  - ID: G_Bot_4
+    Sprite: {fileID: 21300000, guid: 863bfe586361e464ba42c4109ef1f47f, type: 3}
+    _itemsItemChildDetails:
+    - ID: G_Bot_L_4
+      Sprite: {fileID: 21300000, guid: 86dcf2ae6eaec7d4bb8775a519dd64dd, type: 3}
+    - ID: G_Bot_R_4
+      Sprite: {fileID: 21300000, guid: ce39b53e6e0891840acd562244985e36, type: 3}
+  AccessoiresItemStyles:
+  - ID: G_Acc_1
+    Sprite: {fileID: 21300000, guid: 377244462f6a1bf498a1c1b013033d16, type: 3}
+    _itemsItemChildDetails: []
+  - ID: G_Face_Acc_0
+    Sprite: {fileID: 21300000, guid: 6d2bafcdac4ac6240b54f1dfa33f6940, type: 3}
+    _itemsItemChildDetails: []
+  - ID: G_Face_Acc_1
+    Sprite: {fileID: 21300000, guid: 4eb35050052efea4981cd0dee38051da, type: 3}
+    _itemsItemChildDetails: []
+  - ID: G_Face_Acc_2
+    Sprite: {fileID: 21300000, guid: 35cc404b8fdc4ee44b8f75df2a1e9072, type: 3}
+    _itemsItemChildDetails: []
+  vehicleItemStyles:
+  - ID: Car_1
+    Sprite: {fileID: 21300000, guid: d2a6017430553d042b5f4b5422e23fe0, type: 3}
+    _itemsItemChildDetails: []
+  - ID: Motor_1
+    Sprite: {fileID: 21300000, guid: 46a86b821677ffe44af15a9321d60383, type: 3}
+    _itemsItemChildDetails: []
+  - ID: Skate_1
+    Sprite: {fileID: 21300000, guid: 83e1ccf23fd3e4c4b96fc1ad5f591e4e, type: 3}
+    _itemsItemChildDetails: []
+  shoesItemStyles: []
+  TailsItemStyles: []
+  WingsItemStyles: []
+  Weapon_l_ItemStyles:
+  - ID: Shield_1
+    Sprite: {fileID: 21300000, guid: ed1d12ee4861d3b4283176d6b5fc2ed0, type: 3}
+    _itemsItemChildDetails: []
+  Weapon_R_ItemStyles:
+  - ID: Gun_1
+    Sprite: {fileID: 21300000, guid: 8aa9ce28a0875ad46ad3cc894eef67a8, type: 3}
+    _itemsItemChildDetails: []
+  - ID: Spear_1
+    Sprite: {fileID: 21300000, guid: cf865432dbd335b498c6152c2788ff16, type: 3}
+    _itemsItemChildDetails: []
+  - ID: Sword_1
+    Sprite: {fileID: 21300000, guid: a981bf4889ecff543ac73e09d3a4f8c0, type: 3}
+    _itemsItemChildDetails: []

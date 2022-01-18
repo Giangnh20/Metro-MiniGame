@@ -1,0 +1,504 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 507f87273d8724b4081a9a0630c537cc, type: 3}
+  m_Name: SpecialData
+  m_EditorClassIdentifier: 
+  Etypecharactor: 2
+  bodyItemStyles:
+  - ID: icon_64x64_1
+    Sprite: {fileID: 21300000, guid: 505686de691fe4424b41721f9d75d80a, type: 3}
+    _itemsItemAnimations:
+    - ID: icon_64x64_1
+      Sprite: {fileID: 21300000, guid: 505686de691fe4424b41721f9d75d80a, type: 3}
+    - ID: icon_64x64_1
+      Sprite: {fileID: 21300000, guid: 505686de691fe4424b41721f9d75d80a, type: 3}
+    - ID: icon_64x64_1
+      Sprite: {fileID: 21300000, guid: 505686de691fe4424b41721f9d75d80a, type: 3}
+  - ID: icon_64x64_2
+    Sprite: {fileID: 21300000, guid: d93f12516ebf84955a80ce9d61861193, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_3
+    Sprite: {fileID: 21300000, guid: 398cc1321ebfe48b4aa7851af94623ec, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_4
+    Sprite: {fileID: 21300000, guid: ca347efc54a03479b87b087138fabdc8, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_10
+    Sprite: {fileID: 21300000, guid: 1099b6e722174483181eb4e1ca4d4ba1, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_100
+    Sprite: {fileID: 21300000, guid: 7f502c1923f3247a499b3f11aef085fa, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_101
+    Sprite: {fileID: 21300000, guid: 9727329c72137474c954856bf59ebb45, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_102
+    Sprite: {fileID: 21300000, guid: 9e2edc37ec99142d9ab3c030ac799daf, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_103
+    Sprite: {fileID: 21300000, guid: 133188bd7aa014cd9890640965afe3d0, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_104
+    Sprite: {fileID: 21300000, guid: 7cc64b72f084c4f9c8808e433a92ee70, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_105
+    Sprite: {fileID: 21300000, guid: 81737e368a0134c7cb7f1ee4631bdfd7, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_106
+    Sprite: {fileID: 21300000, guid: 40b7ac89f020d40cf8a175bc86c236d2, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_107
+    Sprite: {fileID: 21300000, guid: efb2a7ad5787449ed8d1702b6ac2b534, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_108
+    Sprite: {fileID: 21300000, guid: ba7106c796dcd41a7801fccf0085fc6e, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_109
+    Sprite: {fileID: 21300000, guid: e6c3c1cdf08084ba3ad3b552541c3db3, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_11
+    Sprite: {fileID: 21300000, guid: e85fdbc11fd644a28b8d2f19795f4dcd, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_110
+    Sprite: {fileID: 21300000, guid: 9be6ec513a3974bffb4967581e99df3d, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_111
+    Sprite: {fileID: 21300000, guid: 47ba4eaad3d114082a81135a0304503f, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_112
+    Sprite: {fileID: 21300000, guid: 98d5995456c074be8a386cb4fa590b05, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_113
+    Sprite: {fileID: 21300000, guid: e198fd3d03bd64a9f887532883bad7e7, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_114
+    Sprite: {fileID: 21300000, guid: c1175fc380cb64a7490cffbc23db4813, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_115
+    Sprite: {fileID: 21300000, guid: 17440c397e66d4b568363d7850ed44ea, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_116
+    Sprite: {fileID: 21300000, guid: 38fd113921bad41549996d570ffe2a53, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_117
+    Sprite: {fileID: 21300000, guid: a351c10aba3604f1bb9427a38566d525, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_118
+    Sprite: {fileID: 21300000, guid: dac0dd0d487e9431bba2f44b7ef4122f, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_119
+    Sprite: {fileID: 21300000, guid: be9952efc455742ba836358332481d58, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_12
+    Sprite: {fileID: 21300000, guid: 2b6bcef5bd74a43748d4eca4335490e0, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_120
+    Sprite: {fileID: 21300000, guid: ea80504c77a464afa8c3a16653da8622, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_121
+    Sprite: {fileID: 21300000, guid: c2fbd0a0b1ce3422bafaa5bcc1a2c3d3, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_122
+    Sprite: {fileID: 21300000, guid: b3dc82df91d7c4658bada6c0d8c8aad0, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_123
+    Sprite: {fileID: 21300000, guid: 336ca26be1f744e5c8b058e42c908031, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_124
+    Sprite: {fileID: 21300000, guid: 0137bb6379ee24b68a3d5463f7093b68, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_125
+    Sprite: {fileID: 21300000, guid: ddefee28bc78940a0a8961614bf616bf, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_126
+    Sprite: {fileID: 21300000, guid: 56f8ea5565ef045f985ee92e5d31e224, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_127
+    Sprite: {fileID: 21300000, guid: 282f917cd14fc4078b85ee4ac470e5fc, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_128
+    Sprite: {fileID: 21300000, guid: 39c29b14ee5554551afdea503c713b52, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_129
+    Sprite: {fileID: 21300000, guid: d522edc4245ef4d06a41fee48ef6d9d4, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_13
+    Sprite: {fileID: 21300000, guid: 4e1ee286fe1054595a32da009d60bddd, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_130
+    Sprite: {fileID: 21300000, guid: 367908c4cbafe447ca26541105910572, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_131
+    Sprite: {fileID: 21300000, guid: 581a840db944145acb8582b8cbb1fa98, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_132
+    Sprite: {fileID: 21300000, guid: 2ccfffaa3f2c54318a3d6ad089e1d5a6, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_133
+    Sprite: {fileID: 21300000, guid: d0578332b8bb748029a2afa8f4373ff0, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_134
+    Sprite: {fileID: 21300000, guid: a7a7d2020a7794d9aa395208ead6be8c, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_135
+    Sprite: {fileID: 21300000, guid: 21aaddad3f09b4fa4a431cbba994d456, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_136
+    Sprite: {fileID: 21300000, guid: dc557a84d30dc4badac8d6b3f913ec24, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_137
+    Sprite: {fileID: 21300000, guid: 9b16a5a7c5c4f4bc2a1d9350280cd21c, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_138
+    Sprite: {fileID: 21300000, guid: 0f760ef3258f0461d9cafa0a72b093ff, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_139
+    Sprite: {fileID: 21300000, guid: 2148bd422eafd463784dd0a0c2da15c7, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_14
+    Sprite: {fileID: 21300000, guid: 9c49f8e3c13f442b697a6aea6e5f0192, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_140
+    Sprite: {fileID: 21300000, guid: e8e234353796e424e9f3e80b7c520d71, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_141
+    Sprite: {fileID: 21300000, guid: 80ae4871b43464651b008e2701c24f78, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_142
+    Sprite: {fileID: 21300000, guid: 0a6a0877600344c2d9990ab00d83a218, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_143
+    Sprite: {fileID: 21300000, guid: e0a8ad2023d224ceeac33cb3336bc410, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_144
+    Sprite: {fileID: 21300000, guid: 09964b4a2277049dcb13f5953dc2a8cb, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_145
+    Sprite: {fileID: 21300000, guid: 925b648f397064370b49fcfcfe70cc2e, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_146
+    Sprite: {fileID: 21300000, guid: 73309f2ce53b64fd887b2d8ffa5cd459, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_147
+    Sprite: {fileID: 21300000, guid: 6b7dbb4d3014742cd97f3f69c02d42b2, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_148
+    Sprite: {fileID: 21300000, guid: 78adec561d55f42098b99c6d4285fb19, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_149
+    Sprite: {fileID: 21300000, guid: aecb1fc7610f44709b0b59445844e576, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_15
+    Sprite: {fileID: 21300000, guid: c68842c1c99694718a61abbe42ef3cda, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_150
+    Sprite: {fileID: 21300000, guid: 2a312551bc1d54c75a5b25dc52daf8d1, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_151
+    Sprite: {fileID: 21300000, guid: 790fc316776324dd5954aa5c5c94e922, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_152
+    Sprite: {fileID: 21300000, guid: 5bf3c9415b50f413a9cf4886fc68dca1, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_153
+    Sprite: {fileID: 21300000, guid: 2a2b9937ee0bd45e9b6fdc208067a931, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_154
+    Sprite: {fileID: 21300000, guid: 39a380b32e67041bb84c16b57a19c66f, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_155
+    Sprite: {fileID: 21300000, guid: 285665d0ed30445f6b1c3059f2996409, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_156
+    Sprite: {fileID: 21300000, guid: 48e6903e3118c47c0a4f294da443192e, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_157
+    Sprite: {fileID: 21300000, guid: 99c2e0443f0b64a8f8e46dabfd24839c, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_158
+    Sprite: {fileID: 21300000, guid: 585ada6d5fe154a23a8da00ba3301b2b, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_16
+    Sprite: {fileID: 21300000, guid: e41eb71728bbe4ae1873abc5152be1ca, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_17
+    Sprite: {fileID: 21300000, guid: 972352c07bad6439684ee67df3f30f6c, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_18
+    Sprite: {fileID: 21300000, guid: dd284c96ed3af4a13b69add5f8383893, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_19
+    Sprite: {fileID: 21300000, guid: a1167847948b64f6da96b32fccd68d7f, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_20
+    Sprite: {fileID: 21300000, guid: 3bfc07656f34241eeaa2e6dda92a3a40, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_21
+    Sprite: {fileID: 21300000, guid: 291f444daddfd4755862d8388d60ad44, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_22
+    Sprite: {fileID: 21300000, guid: a60b871e8567f42509cf0894305d90a6, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_23
+    Sprite: {fileID: 21300000, guid: b74a105d27f30404eb98e1247bb62ae8, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_24
+    Sprite: {fileID: 21300000, guid: d3cb1a2488e0f4a5eb97c6e6e83ce0f7, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_25
+    Sprite: {fileID: 21300000, guid: d9e5a89b37f3f468681558246895b963, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_26
+    Sprite: {fileID: 21300000, guid: 6999d85916c96497cac05c027331be95, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_27
+    Sprite: {fileID: 21300000, guid: f6a0324600b024df1b4b1a6e271fe25f, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_28
+    Sprite: {fileID: 21300000, guid: 6b75103a3ceb34e05bd2fa00996f2dbe, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_29
+    Sprite: {fileID: 21300000, guid: eafb77211c54c46e7b4c30f5bb9ea90a, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_30
+    Sprite: {fileID: 21300000, guid: 32c8586004e9b49f8ac8aa5a8fe7f308, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_31
+    Sprite: {fileID: 21300000, guid: 6b54b3282e378416eb2b9cc9e964ea68, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_32
+    Sprite: {fileID: 21300000, guid: 36df5f83f665f4032bc172f4a06b06b3, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_33
+    Sprite: {fileID: 21300000, guid: fce30ec8b90664fa09e6a867c160e99b, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_34
+    Sprite: {fileID: 21300000, guid: 68571e05d9c6246a3973d168b70c8aee, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_35
+    Sprite: {fileID: 21300000, guid: 5306767feb91c488cbd8e9c9a863b614, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_36
+    Sprite: {fileID: 21300000, guid: cc28ad1a3f74743cf9b33904d4e93e39, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_37
+    Sprite: {fileID: 21300000, guid: bb58cad988aab420487bdcf96cf7de96, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_38
+    Sprite: {fileID: 21300000, guid: c72c52ab072a04f888f0cf51f79da782, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_39
+    Sprite: {fileID: 21300000, guid: e9f28ec792de1427d984b14d982ea677, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_40
+    Sprite: {fileID: 21300000, guid: 6bdcc362271b54fecb787ecbaac4b2bd, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_41
+    Sprite: {fileID: 21300000, guid: fbad407dd3fa2420786fc50d50e13319, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_42
+    Sprite: {fileID: 21300000, guid: ccc2e24b72f734d52b14f3f0cd8663b6, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_43
+    Sprite: {fileID: 21300000, guid: 08d0088164975410ba7d3272b398caaa, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_44
+    Sprite: {fileID: 21300000, guid: 4e3cc6b18a14b47729f4a0a6691c400c, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_45
+    Sprite: {fileID: 21300000, guid: ac58b62d9fddf4a30a75adeb90abda62, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_46
+    Sprite: {fileID: 21300000, guid: da622a0aad41a46329c6f39fa50a6c62, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_47
+    Sprite: {fileID: 21300000, guid: aac040641a32d4c3c91e4f2bcc003c90, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_48
+    Sprite: {fileID: 21300000, guid: 125478129b7434dbc9ec9356000f989f, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_49
+    Sprite: {fileID: 21300000, guid: e72d44ce6faa14f69858dd5ca04c0538, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_5
+    Sprite: {fileID: 21300000, guid: da3f72a387f2c4f62a7a4434063a7b8f, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_50
+    Sprite: {fileID: 21300000, guid: b85c1e79af5c64116b4cbed8fa2d9c37, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_51
+    Sprite: {fileID: 21300000, guid: 6ab1abc13ee594644879799c87aa2536, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_52
+    Sprite: {fileID: 21300000, guid: b701eaa0677224c9491e18efe65ee3db, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_53
+    Sprite: {fileID: 21300000, guid: 03b365a6e557c41e38a3f1ca3dfcd333, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_54
+    Sprite: {fileID: 21300000, guid: 30b0f46aeacb942138c390ebe0986b01, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_55
+    Sprite: {fileID: 21300000, guid: 3a0f416945bad4499a4404a14122d24e, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_56
+    Sprite: {fileID: 21300000, guid: 42da50aa7feab4b3cbb0ffedf55ba2fe, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_57
+    Sprite: {fileID: 21300000, guid: 6f2b2dd6bbf6f4b35b0049ed3185864d, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_58
+    Sprite: {fileID: 21300000, guid: f252944322be644ddbdc5a4d4e807553, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_59
+    Sprite: {fileID: 21300000, guid: 28d842a7ffbf1419d8209e4bcf7c6f47, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_6
+    Sprite: {fileID: 21300000, guid: c9290ac6217284cbf8efc8305cbb0ac7, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_60
+    Sprite: {fileID: 21300000, guid: f629049ae45b6467f938450db1d27152, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_61
+    Sprite: {fileID: 21300000, guid: c797a227852e04c96845ed9ba6dda1a8, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_62
+    Sprite: {fileID: 21300000, guid: f6d624c8ab23148679448509b4638c2b, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_63
+    Sprite: {fileID: 21300000, guid: 081018162fa574bec8084eb839d5e18f, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_64
+    Sprite: {fileID: 21300000, guid: 29167538480bc4d52a392b5624180273, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_65
+    Sprite: {fileID: 21300000, guid: e78267261b3a54bea8cff5e7bae8e80c, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_66
+    Sprite: {fileID: 21300000, guid: 0a4a1c8506c854a4f96763ed5986e504, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_67
+    Sprite: {fileID: 21300000, guid: 421e338bb40524b6f98a155a22eb1f22, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_68
+    Sprite: {fileID: 21300000, guid: 67515ac0be98c433ab68511893ed691c, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_69
+    Sprite: {fileID: 21300000, guid: 4484b0ca52c204666880f28168cd7f19, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_7
+    Sprite: {fileID: 21300000, guid: 70888927c881a435c8fd68826b5c8a76, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_70
+    Sprite: {fileID: 21300000, guid: 8bae45167d6bf4bf294ceb90e526728b, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_71
+    Sprite: {fileID: 21300000, guid: f21c7e6e23b244838b231ad9e8bc04f1, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_72
+    Sprite: {fileID: 21300000, guid: 3bd57f8a1be094c94a70b712e7552367, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_73
+    Sprite: {fileID: 21300000, guid: c0c6d4ce2b0cc4235b9843239f36b43c, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_74
+    Sprite: {fileID: 21300000, guid: 0e5eb689781c54adc908552eb094cfa2, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_75
+    Sprite: {fileID: 21300000, guid: b16aa6eb8e3f34ff692b2a9457b64a83, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_76
+    Sprite: {fileID: 21300000, guid: 69ae417f033e1451d9be69cf75595468, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_77
+    Sprite: {fileID: 21300000, guid: 7007c9e4e3d564b96ac7c37a7abb0d1e, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_78
+    Sprite: {fileID: 21300000, guid: b2205e1d8b15643e4b65c9b53719ea4c, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_79
+    Sprite: {fileID: 21300000, guid: dc62291597eb5450cafef4edfdc0cd5b, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_8
+    Sprite: {fileID: 21300000, guid: bd95f9a36135c45fd95e68c2c3b29727, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_80
+    Sprite: {fileID: 21300000, guid: d5296165293464ced810b2a0f37652bf, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_81
+    Sprite: {fileID: 21300000, guid: 16551bcaca1274274b757231f120eb4d, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_82
+    Sprite: {fileID: 21300000, guid: 0596a5110eabe4b51bb3d4a452ba42e8, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_83
+    Sprite: {fileID: 21300000, guid: bc38aa8a50f7b496fae620edf4b7e0e8, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_84
+    Sprite: {fileID: 21300000, guid: 3ff3f239a270b4f0b9d8e01cbf417557, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_85
+    Sprite: {fileID: 21300000, guid: 94fd8c64c5a6f4223b3a4bea0608ebb7, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_86
+    Sprite: {fileID: 21300000, guid: d43233cba4b954a689a3f989f55e75c4, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_87
+    Sprite: {fileID: 21300000, guid: 029764c2b25e5423493de7f04c2d9ccc, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_88
+    Sprite: {fileID: 21300000, guid: 74fa648e18a554de091746a21b89c78d, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_89
+    Sprite: {fileID: 21300000, guid: fb6dd2acd44134a54b7297d801f61b5f, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_9
+    Sprite: {fileID: 21300000, guid: 50e0bdf920be648fd93f28e7023a465a, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_90
+    Sprite: {fileID: 21300000, guid: f8905d57af2354cdf93dd254ba140ad7, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_91
+    Sprite: {fileID: 21300000, guid: 56cab2b3f1cb2414394a400621607898, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_92
+    Sprite: {fileID: 21300000, guid: 3d499965fa7b74f5cb4468dda3a59e8e, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_93
+    Sprite: {fileID: 21300000, guid: db8df9fac47374660bae2e613dbc2f87, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_94
+    Sprite: {fileID: 21300000, guid: 866d6c2e6199c4835a2d8a3130b0ee31, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_95
+    Sprite: {fileID: 21300000, guid: 7368a5ce4e87a4cfe978d8123cac28e8, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_96
+    Sprite: {fileID: 21300000, guid: d77085ab6380049e1afcdc9ae700c196, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_97
+    Sprite: {fileID: 21300000, guid: 02af7dfa9f8ab48308001df39b6454c5, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_98
+    Sprite: {fileID: 21300000, guid: 7a84815623a8943639b15ba4a75f44bd, type: 3}
+    _itemsItemAnimations: []
+  - ID: icon_64x64_99
+    Sprite: {fileID: 21300000, guid: 0ec440606d0ea4b40b961513ecd4a171, type: 3}
+    _itemsItemAnimations: []
+  headItemStyles: []
+  FacesItemStyles: []
+  hairItemStyles: []
+  hairLongItemStyles: []
+  topItemStyles: []
+  bottomItemStyles: []
+  AccessoiresItemStyles: []
+  vehicleItemStyles: []

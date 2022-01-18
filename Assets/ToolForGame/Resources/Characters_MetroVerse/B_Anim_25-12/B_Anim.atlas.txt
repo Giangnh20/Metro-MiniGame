@@ -1,0 +1,209 @@
+
+B_Anim.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+B/B_Bot_1
+  rotate: false
+  xy: 1030, 886
+  size: 144, 144
+  orig: 144, 144
+  offset: 0, 0
+  index: -1
+B/B_Bot_L_1
+  rotate: false
+  xy: 1322, 914
+  size: 116, 116
+  orig: 116, 116
+  offset: 0, 0
+  index: -1
+B/B_Bot_R_1
+  rotate: false
+  xy: 1322, 914
+  size: 116, 116
+  orig: 116, 116
+  offset: 0, 0
+  index: -1
+B/B_Face_1
+  rotate: false
+  xy: 2, 54
+  size: 200, 200
+  orig: 200, 200
+  offset: 0, 0
+  index: -1
+B/B_Hair_1
+  rotate: false
+  xy: 516, 320
+  size: 448, 448
+  orig: 448, 448
+  offset: 0, 0
+  index: -1
+B/B_Shoes_L_1
+  rotate: false
+  xy: 1134, 788
+  size: 96, 96
+  orig: 96, 96
+  offset: 0, 0
+  index: -1
+B/B_Shoes_R_1
+  rotate: false
+  xy: 1134, 788
+  size: 96, 96
+  orig: 96, 96
+  offset: 0, 0
+  index: -1
+B/B_Top_1
+  rotate: false
+  xy: 204, 82
+  size: 172, 172
+  orig: 172, 172
+  offset: 0, 0
+  index: -1
+B/B_Top_L_1
+  rotate: false
+  xy: 810, 170
+  size: 148, 148
+  orig: 148, 148
+  offset: 0, 0
+  index: -1
+B/B_Top_R_1
+  rotate: false
+  xy: 810, 20
+  size: 148, 148
+  orig: 148, 148
+  offset: 0, 0
+  index: -1
+B_Body_Skin_White
+  rotate: false
+  xy: 378, 82
+  size: 172, 172
+  orig: 172, 172
+  offset: 0, 0
+  index: -1
+B_Bot_0
+  rotate: false
+  xy: 1176, 886
+  size: 144, 144
+  orig: 144, 144
+  offset: 0, 0
+  index: -1
+B_Head_Skin_White
+  rotate: false
+  xy: 552, 62
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Fishing/Rod_2
+  rotate: false
+  xy: 2, 770
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+Fishing/Wire_Rod_2
+  rotate: false
+  xy: 1396, 462
+  size: 36, 332
+  orig: 36, 332
+  offset: 0, 0
+  index: -1
+Foot_Skin_White
+  rotate: false
+  xy: 1232, 788
+  size: 96, 96
+  orig: 96, 96
+  offset: 0, 0
+  index: -1
+Football/Ball
+  rotate: false
+  xy: 1030, 782
+  size: 102, 102
+  orig: 102, 102
+  offset: 0, 0
+  index: -1
+G/G_Hair_Long_1
+  rotate: false
+  xy: 966, 340
+  size: 428, 428
+  orig: 428, 428
+  offset: 0, 0
+  index: -1
+Hand_L_Equip/Gun_1
+  rotate: false
+  xy: 1110, 2
+  size: 336, 336
+  orig: 336, 336
+  offset: 0, 0
+  index: -1
+Hand_L_Equip/Shield_1
+  rotate: false
+  xy: 764, 1708
+  size: 336, 336
+  orig: 336, 336
+  offset: 0, 0
+  index: -1
+Hand_L_Equip/Spear_1
+  rotate: false
+  xy: 764, 1370
+  size: 336, 336
+  orig: 336, 336
+  offset: 0, 0
+  index: -1
+Hand_L_Equip/Sword_1
+  rotate: false
+  xy: 1030, 1032
+  size: 336, 336
+  orig: 336, 336
+  offset: 0, 0
+  index: -1
+Hand_L_White
+  rotate: false
+  xy: 960, 170
+  size: 148, 148
+  orig: 148, 148
+  offset: 0, 0
+  index: -1
+Hand_R_White
+  rotate: false
+  xy: 960, 20
+  size: 148, 148
+  orig: 148, 148
+  offset: 0, 0
+  index: -1
+Leg_Skin_White
+  rotate: false
+  xy: 1330, 796
+  size: 116, 116
+  orig: 116, 116
+  offset: 0, 0
+  index: -1
+Shadow
+  rotate: false
+  xy: 2, 18
+  size: 154, 34
+  orig: 154, 34
+  offset: 0, 0
+  index: -1
+Vehicles/Car_1
+  rotate: false
+  xy: 2, 1284
+  size: 760, 760
+  orig: 760, 760
+  offset: 0, 0
+  index: -1
+Vehicles/Motor_1
+  rotate: false
+  xy: 2, 256
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+Vehicles/Skate_1
+  rotate: false
+  xy: 516, 770
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
