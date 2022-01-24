@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using MiniGame.Common;
 using UniRx;
 using UnityEngine;
 
-public abstract class BaseGameManager : MonoBehaviour, IGameManager
+public abstract class BaseGameManager<T> : MonoBehaviour, IGameManager where T : MinigameData
 {
     protected EGameState gameState;
     private TimerManager _timerManager;
@@ -13,6 +14,8 @@ public abstract class BaseGameManager : MonoBehaviour, IGameManager
     protected Dictionary<int, PlayerServerData> players;
     private IDisposable disposable;
     
+    public MiniGameDataConfig<T> minigameConfigs;
+
     protected virtual void Awake()
     {
         InitDone = false;
@@ -26,12 +29,16 @@ public abstract class BaseGameManager : MonoBehaviour, IGameManager
     }
 
 
-    public abstract IGameData Data { get; }
+    public MinigameData Data { get; private set; }
     public ReactiveProperty<EGameState> GameState { get; protected set; }
 
     public virtual void Initialize()
     {
         InitDone = false;
+        
+        // Read game Data
+        LoadPreStartGameData();
+        
         GameState = new ReactiveProperty<EGameState>(EGameState.INIT);
         _timerManager = new TimerManager();
         players = new Dictionary<int, PlayerServerData>();
@@ -41,6 +48,14 @@ public abstract class BaseGameManager : MonoBehaviour, IGameManager
         TimeOver = new BoolReactiveProperty();
         disposable = TimeCountdown.Subscribe(t => TimeOver.Value = t <= 0);
         InitDone = true;
+    }
+
+    protected virtual void LoadPreStartGameData()
+    {
+        var preStart = ServiceLocator.Instance.Resolve<LocalData>().PreStartGameData;
+        Data = minigameConfigs.ConfigItems.FirstOrDefault(c => c.Difficulty == preStart.Difficulty);
+        if (Data == null)
+            throw new ArgumentNullException("Gameconfig not found!");
     }
 
     public bool InitDone { get; protected set; }

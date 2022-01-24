@@ -7,54 +7,55 @@ using UniRx;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class SquidGameData : IGameData
-{
-    public int TotalTime;
-    public int RandomMin;
-    public int RandomMax;
-    public float DestinationX;
-    public int KillModeTime;
-    public float DelayKillModeTime;
+//public class SquidGameData : IGameData
+//{
+//    public int TotalTime;
+//    public int RandomMin;
+//    public int RandomMax;
+//    public float DestinationX;
+//    public int KillModeTime;
+//    public float DelayKillModeTime;
+//
+//    public SquidGameData(int totalTime, int randomMin, int randomMax, float destinationX, int killModeTime, float delayKillModeTime)
+//    {
+//        TotalTime = totalTime;
+//        RandomMin = randomMin;
+//        RandomMax = randomMax;
+//        DestinationX = destinationX;
+//        KillModeTime = killModeTime;
+//        DelayKillModeTime = delayKillModeTime;
+//    }
+//}
 
-    public SquidGameData(int totalTime, int randomMin, int randomMax, float destinationX, int killModeTime, float delayKillModeTime)
-    {
-        TotalTime = totalTime;
-        RandomMin = randomMin;
-        RandomMax = randomMax;
-        DestinationX = destinationX;
-        KillModeTime = killModeTime;
-        DelayKillModeTime = delayKillModeTime;
-    }
-}
-
-public class SquidgameGameManager : BaseGameManager
+public class SquidgameGameManager : BaseGameManager<SquidGameData>
 {
     [Header("Game Configs")] 
     [SerializeField] private int totalTime;        // in seconds
     [SerializeField] private int randomMin;        // in seconds
     [SerializeField] private int randomMax;        // in seconds
-    [SerializeField] private float destinationX;
     [SerializeField] private int killModeTime;    // in seconds
     [SerializeField] private float delayKillModeTime;
+    
+    [SerializeField] private float destinationX;
     [SerializeField] private Vector2 spawnRangeX;
     [SerializeField] private Vector2 spawnRangeY;
-    
 
-    private SquidGameData data;
+    private SquidGameData data => Data as SquidGameData;
     private bool shouldCount;
     private IDisposable disposable;
     private CompositeDisposable dpGameplays = new CompositeDisposable();
     private BoolReactiveProperty IsAllPlayerWinner;
     private bool isKillModeOn;
+    private bool IsPlaying => gameState == EGameState.PAUSE || gameState == EGameState.PLAYING;
     
     protected override void Awake()
     {
         base.Awake();
         // For temporary, it should be configured by Scriptable Object
-        data = new SquidGameData(totalTime, randomMin, randomMax, destinationX, killModeTime, delayKillModeTime);    
+//        data = new SquidGameData(totalTime, randomMin, randomMax, killModeTime, delayKillModeTime);    
     }
 
-    public override IGameData Data => data;
+    
 
     protected override void Start()
     {
@@ -68,7 +69,10 @@ public class SquidgameGameManager : BaseGameManager
         //
         FakeGameFlow();
     }
+
     
+
+
     protected override void OnDestroy()
     {
         base.OnDestroy();
@@ -82,7 +86,7 @@ public class SquidgameGameManager : BaseGameManager
         {
             foreach (var player in players.Values)
             {
-                if (!player.IsWinner.Value && player.Position.x >= data.DestinationX)
+                if (!player.IsWinner.Value && player.Position.x >= destinationX)
                 {
                     player.IsWinner.Value = true;
                     player.WinTime = TimeCountdown.Value;
@@ -162,6 +166,8 @@ public class SquidgameGameManager : BaseGameManager
 
     private async void GamePlay()
     {
+        if (!IsPlaying) 
+            return;
         int playTime = UnityEngine.Random.Range(data.RandomMin, data.RandomMax);
         await UniTask.Delay(TimeSpan.FromSeconds(playTime));
         ChangeGameState(EGameState.PAUSE);
@@ -169,6 +175,8 @@ public class SquidgameGameManager : BaseGameManager
 
     private async void GameCheck()
     {
+        if (!IsPlaying) 
+            return;
         await UniTask.Delay(TimeSpan.FromSeconds(data.DelayKillModeTime));
         isKillModeOn = true;
         await UniTask.Delay(TimeSpan.FromSeconds(data.KillModeTime));

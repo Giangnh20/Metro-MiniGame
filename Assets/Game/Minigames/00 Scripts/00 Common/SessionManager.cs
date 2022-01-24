@@ -11,6 +11,7 @@ public class SessionManager : MonoBehaviour
     
     private void Awake()
     {
+        Debug.LogError(gameObject.name);
         ServiceLocator.Instance.RegisterSingleton(this);
     }
 
@@ -29,6 +30,7 @@ public class SessionManager : MonoBehaviour
     private void RegisterServices()
     {
         ServiceLocator.Instance.RegisterSingleton(this);
+        ServiceLocator.Instance.RegisterSingleton(new LocalData());
     }
     
     

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
@@ -14,7 +15,7 @@ public enum EGameState
 
 public interface IGameManager
 {
-    IGameData Data { get; }
+    MinigameData Data { get; }
 
     ReactiveProperty<EGameState> GameState { get; }
 
@@ -28,5 +29,3 @@ public interface IGameManager
 
     void SendPlayerMovement(int playerId, Vector2 playerPos, float jumpValue);
 }
-
-public interface IGameData{}
