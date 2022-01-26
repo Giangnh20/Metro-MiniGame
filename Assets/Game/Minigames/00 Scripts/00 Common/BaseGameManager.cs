@@ -8,13 +8,15 @@ using UnityEngine;
 
 public abstract class BaseGameManager<T> : MonoBehaviour, IGameManager where T : MinigameData
 {
+    public EGameName GameName;
+    
     protected EGameState gameState;
     private TimerManager _timerManager;
 
     protected Dictionary<int, PlayerServerData> players;
     private IDisposable disposable;
     
-    public MiniGameDataConfig<T> minigameConfigs;
+    private MiniGameDataConfig<T> minigameConfigs;
 
     protected virtual void Awake()
     {
@@ -30,9 +32,11 @@ public abstract class BaseGameManager<T> : MonoBehaviour, IGameManager where T :
 
 
     public MinigameData Data { get; private set; }
+    public T GameData => Data as T;
     public ReactiveProperty<EGameState> GameState { get; protected set; }
+    public bool IsPlaying { get; protected set; }
 
-    public virtual void Initialize()
+    protected virtual void Initialize()
     {
         InitDone = false;
         
@@ -53,9 +57,17 @@ public abstract class BaseGameManager<T> : MonoBehaviour, IGameManager where T :
     protected virtual void LoadPreStartGameData()
     {
         var preStart = ServiceLocator.Instance.Resolve<LocalData>().PreStartGameData;
-        Data = minigameConfigs.ConfigItems.FirstOrDefault(c => c.Difficulty == preStart.Difficulty);
-        if (Data == null)
-            throw new ArgumentNullException("Gameconfig not found!");
+        minigameConfigs = Resources.Load($"{GameName}DataConfig") as MiniGameDataConfig<T>;
+        try
+        {
+            Data = minigameConfigs.ConfigItems.FirstOrDefault(c => c.Difficulty == preStart.Difficulty);
+            if (Data == null)
+                throw new NullReferenceException($"{preStart.Difficulty} data not found!");
+        }
+        catch
+        {
+            throw new NullReferenceException("Gameconfig not found!");
+        }
     }
 
     public bool InitDone { get; protected set; }

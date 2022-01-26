@@ -1,28 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-
-//[CreateAssetMenu(fileName = "MinigameConfig", menuName = "MetroVerse/MinigameConfig")]
-public class MiniGameDataConfig<T> : ScriptableObject
-{
-    public EGameName GameName;
-    public List<T> ConfigItems;
-}
 
 
 [CreateAssetMenu(fileName = "SquidGameDataConfig", menuName = "MetroVerse/SquidGameDataConfig")]
 public class SquidGameDataConfig : MiniGameDataConfig<SquidGameData>
 {
     
-}
-
-
-[Serializable]
-public class MinigameData
-{
-    public EGameDifficulty Difficulty;
 }
 
 [Serializable]

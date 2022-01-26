@@ -95872,6 +95872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31c405c3653daad4ca51cecb903e9ece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameName: 0
   totalTime: 120
   randomMin: 2
   randomMax: 5

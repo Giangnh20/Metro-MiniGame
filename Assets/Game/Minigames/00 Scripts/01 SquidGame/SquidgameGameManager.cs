@@ -40,13 +40,11 @@ public class SquidgameGameManager : BaseGameManager<SquidGameData>
     [SerializeField] private Vector2 spawnRangeX;
     [SerializeField] private Vector2 spawnRangeY;
 
-    private SquidGameData data => Data as SquidGameData;
     private bool shouldCount;
     private IDisposable disposable;
     private CompositeDisposable dpGameplays = new CompositeDisposable();
     private BoolReactiveProperty IsAllPlayerWinner;
     private bool isKillModeOn;
-    private bool IsPlaying => gameState == EGameState.PAUSE || gameState == EGameState.PLAYING;
     
     protected override void Awake()
     {
@@ -55,12 +53,18 @@ public class SquidgameGameManager : BaseGameManager<SquidGameData>
 //        data = new SquidGameData(totalTime, randomMin, randomMax, killModeTime, delayKillModeTime);    
     }
 
+
+    protected override void Initialize()
+    {
+        base.Initialize();
+        IsPlaying = false;
+    }
     
 
     protected override void Start()
     {
         base.Start();
-        TimeCountdown.Value = data.TotalTime;
+        TimeCountdown.Value = GameData.TotalTime;
         shouldCount = false;
         IsAllPlayerWinner = new BoolReactiveProperty();
         isKillModeOn = false;
@@ -147,6 +151,7 @@ public class SquidgameGameManager : BaseGameManager<SquidGameData>
 
     async void FakeGameFlow()
     {
+        IsPlaying = true;
         await UniTask.Delay(TimeSpan.FromSeconds(5));
         ChangeGameState(EGameState.READY);
         
@@ -168,7 +173,7 @@ public class SquidgameGameManager : BaseGameManager<SquidGameData>
     {
         if (!IsPlaying) 
             return;
-        int playTime = UnityEngine.Random.Range(data.RandomMin, data.RandomMax);
+        int playTime = UnityEngine.Random.Range(GameData.RandomMin, GameData.RandomMax);
         await UniTask.Delay(TimeSpan.FromSeconds(playTime));
         ChangeGameState(EGameState.PAUSE);
     }
@@ -177,15 +182,16 @@ public class SquidgameGameManager : BaseGameManager<SquidGameData>
     {
         if (!IsPlaying) 
             return;
-        await UniTask.Delay(TimeSpan.FromSeconds(data.DelayKillModeTime));
+        await UniTask.Delay(TimeSpan.FromSeconds(GameData.DelayKillModeTime));
         isKillModeOn = true;
-        await UniTask.Delay(TimeSpan.FromSeconds(data.KillModeTime));
+        await UniTask.Delay(TimeSpan.FromSeconds(GameData.KillModeTime));
         isKillModeOn = false;
         ChangeGameState(EGameState.PLAYING);
     }
 
     private void GameEnd()
     {
+        IsPlaying = false;
         if (IsAllPlayerWinner.Value)
         {
             Debug.LogError("All players are winner");
@@ -205,6 +211,5 @@ public class SquidgameGameManager : BaseGameManager<SquidGameData>
                 Debug.LogError("All LOSE~~~~");
             }
         }
-        //TODO: Update UI
     }
 }

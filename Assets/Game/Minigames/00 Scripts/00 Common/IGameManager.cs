@@ -19,7 +19,7 @@ public interface IGameManager
 
     ReactiveProperty<EGameState> GameState { get; }
 
-    void Initialize();
+    bool IsPlaying { get; }
 
     bool InitDone { get; }
     IntReactiveProperty TimeCountdown { get; }
