@@ -47,6 +47,8 @@ public abstract class Dialog<T> : Dialog where T : Dialog<T>
     public override void OnDialogBecameVisible()
     {
     }
+
+    public abstract void Populate(IScreenData screenData);
 }
 
 public abstract class Dialog : MonoBehaviour
@@ -60,3 +62,5 @@ public abstract class Dialog : MonoBehaviour
     public abstract void OnDialogBecameVisible();
     public abstract void OnBackPressed();
 }
+
+public interface IScreenData{}

@@ -13,7 +13,7 @@ public abstract class BaseGameManager<T> : MonoBehaviour, IGameManager where T :
     protected EGameState gameState;
     private TimerManager _timerManager;
 
-    protected Dictionary<int, PlayerServerData> players;
+    protected Dictionary<string, PlayerServerData> players;
     private IDisposable disposable;
     
     private MiniGameDataConfig<T> minigameConfigs;
@@ -45,7 +45,7 @@ public abstract class BaseGameManager<T> : MonoBehaviour, IGameManager where T :
         
         GameState = new ReactiveProperty<EGameState>(EGameState.INIT);
         _timerManager = new TimerManager();
-        players = new Dictionary<int, PlayerServerData>();
+        players = new Dictionary<string, PlayerServerData>();
         ChangeGameState(EGameState.INIT);
         
         TimeCountdown = new IntReactiveProperty();
@@ -82,7 +82,7 @@ public abstract class BaseGameManager<T> : MonoBehaviour, IGameManager where T :
             players.Add(tmpPlayer.PlayerId, tmpPlayer);
         }
     }
-    public void SendPlayerMovement(int playerId, Vector2 playerPos, float jumpValue)
+    public void SendPlayerMovement(string playerId, Vector2 playerPos, float jumpValue)
     {
         if (players.ContainsKey(playerId))
         {

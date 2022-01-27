@@ -7,13 +7,13 @@ using UnityEngine;
 public class PlayerServerData
 {
     public IMinigamePlayer PlayerView;
-    public int PlayerId;
+    public string PlayerId;
     public Vector2 Position;
     public float JumpValue;
     public BoolReactiveProperty IsWinner;
     public int WinTime;
 
-    public PlayerServerData(IMinigamePlayer playerView, int playerId, Vector2 position, float jumpValue)
+    public PlayerServerData(IMinigamePlayer playerView, string playerId, Vector2 position, float jumpValue)
     {
         PlayerView = playerView;
         PlayerId = playerId;

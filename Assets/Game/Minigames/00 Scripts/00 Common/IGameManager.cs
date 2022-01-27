@@ -27,5 +27,5 @@ public interface IGameManager
 
     void RegisterPlayer(IMinigamePlayer player, Vector2 playerPos);
 
-    void SendPlayerMovement(int playerId, Vector2 playerPos, float jumpValue);
+    void SendPlayerMovement(string playerId, Vector2 playerPos, float jumpValue);
 }

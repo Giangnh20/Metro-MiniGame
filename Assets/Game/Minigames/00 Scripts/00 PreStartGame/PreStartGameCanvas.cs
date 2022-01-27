@@ -28,6 +28,10 @@ public class PreStartGameCanvas : Dialog<PreStartGameCanvas>
     {
         btnCreate?.onClick.AddListener(BtnCreateClicked);
     }
+    
+    public override void Populate(IScreenData screenData)
+    { 
+    }
 
     private void BtnCreateClicked()
     {
@@ -38,7 +42,7 @@ public class PreStartGameCanvas : Dialog<PreStartGameCanvas>
             var players = int.Parse(inputPlayers.text);
             PreStartGameData data = new PreStartGameData(game, difficulty, players);
             ServiceLocator.Instance.Resolve<LocalData>().PreStartGameData = data;
-            SceneManager.LoadSceneAsync("Squidgame");
+            SceneManager.LoadSceneAsync(StringConstants.SCENE_MINI_SQUIDGAME);
         }
         catch
         {
@@ -46,6 +50,7 @@ public class PreStartGameCanvas : Dialog<PreStartGameCanvas>
         }
         
     }
-    
+
+
     
 }

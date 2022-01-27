@@ -5,17 +5,6 @@ using UnityEngine;
 
 public class SquidgameUIManager : MonoBehaviour
 {
-    [Button]
-    public void ShowCoreUI()
-    {
-        UIPopupLoader.Show();
-    }
-    
-    [Button]
-    public void HideCoreUI()
-    {
-        UIPopupLoader.Hide();
-    }
     
     [Button]
     public void ShowPreStartParamsPopup()

@@ -6,20 +6,20 @@ using UnityEngine;
 
 public interface IMinigamePlayer
 {
-    int PlayerId { get; }
+    string PlayerId { get; }
     void ForceResetPlayerPosition(Vector2 pos);
 }
 
 public class BaseMiniGamePlayer : MonoBehaviour, IMinigamePlayer
 {
-    public int PlayerId => _playerId;
-    private int _playerId;
+    public string PlayerId => _playerId;
+    private string _playerId;
     
     protected IGameManager _gameManager;
 
     protected virtual void Awake()
     {
-        _playerId = this.GetHashCode();                    //TODO: For temporary
+        _playerId = this.GetHashCode().ToString();                    //TODO: For temporary
     }
 
     protected virtual void Start()

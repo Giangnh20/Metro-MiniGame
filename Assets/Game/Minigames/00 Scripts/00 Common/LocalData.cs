@@ -7,7 +7,7 @@ public class LocalData
 {
     public bool IsInitDone;
     public PreStartGameData PreStartGameData;
-
+    
     public LocalData()
     {
         Init();

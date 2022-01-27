@@ -27,4 +27,9 @@ public class UIEditorSkins : Dialog<UIEditorSkins>
             return this._uiEditorsSkinCanvas;
         }
     }
+
+    public override void Populate(IScreenData screenData)
+    {
+        
+    }
 }

@@ -7,35 +7,9 @@ using UniRx;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-//public class SquidGameData : IGameData
-//{
-//    public int TotalTime;
-//    public int RandomMin;
-//    public int RandomMax;
-//    public float DestinationX;
-//    public int KillModeTime;
-//    public float DelayKillModeTime;
-//
-//    public SquidGameData(int totalTime, int randomMin, int randomMax, float destinationX, int killModeTime, float delayKillModeTime)
-//    {
-//        TotalTime = totalTime;
-//        RandomMin = randomMin;
-//        RandomMax = randomMax;
-//        DestinationX = destinationX;
-//        KillModeTime = killModeTime;
-//        DelayKillModeTime = delayKillModeTime;
-//    }
-//}
-
 public class SquidgameGameManager : BaseGameManager<SquidGameData>
 {
     [Header("Game Configs")] 
-    [SerializeField] private int totalTime;        // in seconds
-    [SerializeField] private int randomMin;        // in seconds
-    [SerializeField] private int randomMax;        // in seconds
-    [SerializeField] private int killModeTime;    // in seconds
-    [SerializeField] private float delayKillModeTime;
-    
     [SerializeField] private float destinationX;
     [SerializeField] private Vector2 spawnRangeX;
     [SerializeField] private Vector2 spawnRangeY;
@@ -46,14 +20,6 @@ public class SquidgameGameManager : BaseGameManager<SquidGameData>
     private BoolReactiveProperty IsAllPlayerWinner;
     private bool isKillModeOn;
     
-    protected override void Awake()
-    {
-        base.Awake();
-        // For temporary, it should be configured by Scriptable Object
-//        data = new SquidGameData(totalTime, randomMin, randomMax, killModeTime, delayKillModeTime);    
-    }
-
-
     protected override void Initialize()
     {
         base.Initialize();
@@ -92,8 +58,8 @@ public class SquidgameGameManager : BaseGameManager<SquidGameData>
             {
                 if (!player.IsWinner.Value && player.Position.x >= destinationX)
                 {
-                    player.IsWinner.Value = true;
                     player.WinTime = TimeCountdown.Value;
+                    player.IsWinner.Value = true;
                 }
             }
         }
@@ -109,7 +75,7 @@ public class SquidgameGameManager : BaseGameManager<SquidGameData>
         }
     }
 
-    private void ForceResetPlayerPosition(int playerId)
+    private void ForceResetPlayerPosition(string playerId)
     {
         if (players.ContainsKey(playerId))
         {
@@ -191,10 +157,14 @@ public class SquidgameGameManager : BaseGameManager<SquidGameData>
 
     private void GameEnd()
     {
+        var listPlayers = players.Values.ToList();
+        
         IsPlaying = false;
         if (IsAllPlayerWinner.Value)
         {
             Debug.LogError("All players are winner");
+            UIPopupWinCanvas.Show();
+            UIPopupWinCanvas.Instance.Populate(new EndGameScreenData(true, listPlayers));
         }
         else
         {
@@ -205,10 +175,14 @@ public class SquidgameGameManager : BaseGameManager<SquidGameData>
                 var top3 = winners.OrderByDescending(w => w.WinTime).ToList().GetRange(0, Math.Min(winners.Count, 3));
                 string outString = string.Join(",", top3);
                 Debug.LogError("WINNERS: " + outString);
+                UIPopupWinCanvas.Show();
+                UIPopupWinCanvas.Instance.Populate(new EndGameScreenData(true, listPlayers));
             }
             else
             {
                 Debug.LogError("All LOSE~~~~");
+//                UIPopupWinCanvas.Show();
+//                UIPopupWinCanvas.Instance.Populate(new EndGameScreenData(true, listPlayers));
             }
         }
     }
