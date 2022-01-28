@@ -31,6 +31,8 @@ public class SessionManager : MonoBehaviour
     {
         ServiceLocator.Instance.RegisterSingleton(this);
         ServiceLocator.Instance.RegisterSingleton(new LocalData());
+        ServiceLocator.Instance.RegisterSingleton(new UserData());
+        ServiceLocator.Instance.Resolve<UserData>().Init();
     }
     
     

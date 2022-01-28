@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using MiniGame.Common;
 using TMPro;
 using UnityEngine;
 
 public class SquidgamePlayer : BaseMiniGamePlayer
 {
+    [SerializeField] private bool isMeUser;
     [SerializeField] private TextMeshProUGUI txtPlayerName;
     
     private IMove _move;
@@ -23,6 +25,15 @@ public class SquidgamePlayer : BaseMiniGamePlayer
         base.Start();
         txtPlayerName.text = PlayerId.ToString();
     }
+
+    protected override void InitPlayerId()
+    {
+        if (isMeUser)
+            _playerId = ServiceLocator.Instance.Resolve<UserData>().UserId;
+        else
+            base.InitPlayerId();
+    }
+
 
     private void Update()
     {

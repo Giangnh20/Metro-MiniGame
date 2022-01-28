@@ -7,9 +7,13 @@ public class CharacterPreviewEndgame : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI txtPlayerid;
 
+    [SerializeField]
+    private GameObject goTextRank;
 
-    public void ShowPlayers(string playerId)
+
+    public void ShowPlayer(bool isWin, string playerId)
     {
+        goTextRank.SetActive(isWin);
         txtPlayerid.text = playerId;
         //TODO: Update character's costume
         //TODO: play idle anim if needed
