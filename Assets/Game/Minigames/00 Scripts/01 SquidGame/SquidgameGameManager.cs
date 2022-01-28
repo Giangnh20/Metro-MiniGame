@@ -14,6 +14,8 @@ public class SquidgameGameManager : BaseGameManager<SquidGameData>
     [SerializeField] private float destinationX;
     [SerializeField] private Vector2 spawnRangeX;
     [SerializeField] private Vector2 spawnRangeY;
+    public Transform tranTopLeft;
+    public Transform tranBotRight;
 
     private bool shouldCount;
     private IDisposable disposable;
@@ -161,31 +163,6 @@ public class SquidgameGameManager : BaseGameManager<SquidGameData>
         var listPlayers = players.Values.ToList();
         
         IsPlaying = false;
-//        if (IsAllPlayerWinner.Value)
-//        {
-//            Debug.LogError("All players are winner");
-//            UIPopupWinCanvas.Show();
-//            UIPopupWinCanvas.Instance.Populate(new EndGameScreenData(true, listPlayers));
-//        }
-//        else
-//        {
-//            var winners = players.Values.Where(p => p.IsWinner.Value).ToList();
-//            if (winners.Count > 0)
-//            {
-//                // Get top 3 winners
-//                var top3 = winners.OrderByDescending(w => w.WinTime).ToList().GetRange(0, Math.Min(winners.Count, 3));
-//                string outString = string.Join(",", top3);
-//                Debug.LogError("WINNERS: " + outString);
-//                UIPopupWinCanvas.Show();
-//                UIPopupWinCanvas.Instance.Populate(new EndGameScreenData(true, listPlayers));
-//            }
-//            else
-//            {
-//                Debug.LogError("All LOSE~~~~");
-//                UIPopupWinCanvas.Show();
-//                UIPopupWinCanvas.Instance.Populate(new EndGameScreenData(false, listPlayers));
-//            }
-//        }
         var myUserId = ServiceLocator.Instance.Resolve<UserData>().UserId;
         var isWinner = players[myUserId].IsWinner.Value;
         UIPopupEndgameCanvas.Show();

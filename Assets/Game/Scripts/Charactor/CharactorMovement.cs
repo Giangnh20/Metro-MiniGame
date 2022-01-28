@@ -23,20 +23,23 @@ public class CharactorMovement : MonoBehaviour, IMove
 
     private CharactorTailController charactorTailController;
 
+    private IInputListener iinputListener;
     private void Start()
     {
         this.charactorVehicleController = this.GetComponent<CharactorVehicleController>();
         this.charactorWingController = this.GetComponent<CharactorWingController>();
         this.charactorTailController = this.GetComponent<CharactorTailController>();
         this.charactorSkinManager = this.GetComponent<CharactorSkinManager>();
+        iinputListener = GetComponent<IInputListener>();
         ijump = GetComponent<IJump>();
         body = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
-        move.x = Input.GetAxisRaw("Horizontal");
-        move.y = Input.GetAxisRaw("Vertical");
+//        move.x = Input.GetAxisRaw("Horizontal");
+//        move.y = Input.GetAxisRaw("Vertical");
+        move = iinputListener.GetMovementInput();
         CheckFlip();
         CheckPlayAnim();
     }
