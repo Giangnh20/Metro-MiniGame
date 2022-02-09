@@ -2,10 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnumDefine
-{
-    
-}
 
 public enum EGameDifficulty
 {
@@ -19,3 +15,13 @@ public enum EGameName
     SquidGame,
     
 }
+
+#region GAMEPLAY
+
+public enum EForceResetReason
+{
+    NONE,
+    DEAD,
+}
+
+#endregion

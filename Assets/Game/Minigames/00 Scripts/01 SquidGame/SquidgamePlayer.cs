@@ -49,4 +49,6 @@ public class SquidgamePlayer : BaseMiniGamePlayer
     {
         _gameManager.SendPlayerMovement(PlayerId, new Vector2(transform.position.x, transform.position.y), _jump.jumpValue);
     }
+    
+    
 }

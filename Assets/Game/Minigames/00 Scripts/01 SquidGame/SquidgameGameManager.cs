@@ -10,18 +10,24 @@ using Random = UnityEngine.Random;
 
 public class SquidgameGameManager : BaseGameManager<SquidGameData>
 {
+    [SerializeField] private SquidgameBoss gameBoss;
+    
     [Header("Game Configs")] 
     [SerializeField] private float destinationX;
-    [SerializeField] private Vector2 spawnRangeX;
-    [SerializeField] private Vector2 spawnRangeY;
+    [SerializeField] public Vector2 spawnRangeX;
+    [SerializeField] public Vector2 spawnRangeY;
     public Transform tranTopLeft;
     public Transform tranBotRight;
 
+    
+    
     private bool shouldCount;
     private IDisposable disposable;
     private CompositeDisposable dpGameplays = new CompositeDisposable();
     private BoolReactiveProperty IsAllPlayerWinner;
     private bool isKillModeOn;
+    
+    
     
     protected override void Initialize()
     {
@@ -63,6 +69,7 @@ public class SquidgameGameManager : BaseGameManager<SquidGameData>
                 {
                     player.WinTime = TimeCountdown.Value;
                     player.IsWinner.Value = true;
+                    player.PlayerView.WinGame();
                 }
             }
         }
@@ -74,17 +81,24 @@ public class SquidgameGameManager : BaseGameManager<SquidGameData>
         if (isKillModeOn && !player.IsWinner.Value)
         {
             Debug.LogError($"<color='magenta'>KILL PLAYER: {player.PlayerId}</color>");
-            ForceResetPlayerPosition(player.PlayerId);
+            KillPlayer(player);
         }
     }
 
-    private void ForceResetPlayerPosition(string playerId)
+    public async void KillPlayer(PlayerServerData player)
+    {
+        gameBoss.HitPlayer(player.Position);
+        await UniTask.Delay(200);
+        ForceResetPlayerPosition(player.PlayerId, EForceResetReason.DEAD);
+    } 
+    
+    private void ForceResetPlayerPosition(string playerId, EForceResetReason reason)
     {
         if (players.ContainsKey(playerId))
         {
             var rebornPosition = new Vector2(Random.Range(spawnRangeX.x, spawnRangeX.y), Random.Range(spawnRangeY.x, spawnRangeY.y));
             players[playerId].Position = rebornPosition;
-            players[playerId].PlayerView.ForceResetPlayerPosition(rebornPosition);
+            players[playerId].PlayerView.ForceResetPlayerPosition(rebornPosition, reason);
         }
     }
 
