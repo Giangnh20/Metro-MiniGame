@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Sirenix.OdinInspector;
 using UniRx;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -10,13 +11,16 @@ using UnityEngine.UI;
 
 public class DrawGameManager : Singleton<DrawGameManager>
 {
-    public string levelKey = "DrawLevel_0";
+    public bool playInLocalMode = false;
+
+    [ShowIf("playInLocalMode")] [SerializeField] private ScriptableObject localLevelAsset;
+    [HideIf("playInLocalMode")] [SerializeField] public string levelKey = "DrawLevel_0";
     public Color CurrentColor;
     [SerializeField] private Transform pickerHolder;
     [SerializeField] private ColorPicker prefabPicker;
     [SerializeField] private Transform objectiveHolder;
 
-        public Shader ShaderGUItext => Shader.Find("GUI/Text Shader");
+    public Shader ShaderGUItext => Shader.Find("GUI/Text Shader");
     public Shader ShaderSpritesDefault => Shader.Find("Sprites/Default");
     private List<ColorPicker> pickers;
     public bool InitDone;
@@ -26,14 +30,28 @@ public class DrawGameManager : Singleton<DrawGameManager>
     {
         pickers = new List<ColorPicker>();
         InitDone = false;
-        var loadLevel = await Addressables.LoadAssetAsync<ScriptableObject>(levelKey).Task;
-        if (loadLevel == null)
+        DrawGameLevelConfig levelConfig;
+        if (playInLocalMode)
         {
-            Debug.LogError($"Load level {levelKey} error!");
-            return;
+            if (localLevelAsset == null)
+            {
+                Debug.LogError($"Load Local LevelAsset error!");
+                return;
+            }
+            levelConfig = localLevelAsset as DrawGameLevelConfig;
+        }
+        else
+        {
+            var loadLevel = await Addressables.LoadAssetAsync<ScriptableObject>(levelKey).Task;
+            if (loadLevel == null)
+            {
+                Debug.LogError($"Load level {levelKey} error!");
+                return;
+            }
+            levelConfig = loadLevel as DrawGameLevelConfig;
         }
 
-        var levelConfig = loadLevel as DrawGameLevelConfig;
+        
         var premiumColors = levelConfig.GetPremiumColors();
         Instantiate(levelConfig.LevelPrefab, objectiveHolder);
 

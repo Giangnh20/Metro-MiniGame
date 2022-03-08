@@ -365,6 +365,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3006664308429705108, guid: 679763b08c78935489da431dd31c5193,
+        type: 3}
+      propertyPath: playInLocalMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3006664308429705108, guid: 679763b08c78935489da431dd31c5193,
+        type: 3}
+      propertyPath: localLevelAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ce569e79d0675d44db428eab0a17d4e2,
+        type: 2}
     - target: {fileID: 7429388449422972837, guid: 679763b08c78935489da431dd31c5193,
         type: 3}
       propertyPath: m_Name
