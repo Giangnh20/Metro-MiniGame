@@ -577,6 +577,7 @@ GameObject:
   - component: {fileID: 6433846363850773967}
   - component: {fileID: 6433846363850773961}
   - component: {fileID: 6433846363850773960}
+  - component: {fileID: 8259914015153170815}
   m_Layer: 5
   m_Name: Viewport
   m_TagString: Untagged
@@ -641,6 +642,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8259914015153170815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6433846363850773966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
 --- !u!1 &6433846363980580092
 GameObject:
   m_ObjectHideFlags: 0
@@ -1347,7 +1361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 597de68f97f83804eb5545d5e0dc21a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelKey: DrawLevel_0
+  levelKey: DrawLevel_1
   CurrentColor: {r: 0, g: 0, b: 0, a: 0}
   pickerHolder: {fileID: 5363061016264929171}
   prefabPicker: {fileID: 720916034884885280, guid: 2660c58bb26ef734bbb59907277f2324,

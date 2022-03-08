@@ -11,6 +11,9 @@ public static class ColorPickerHelper
 //        Debug.LogError($"{transform.parent.name}, textureRect.center: {textureRect.center.x}, {textureRect.center.y}");
 //        Debug.LogError($"texture: {texture.width} x {texture.height}");
         // Get pixel color
-        return texture.GetPixel((int)textureRect.center.x, (int)textureRect.center.y);
+        Color color = texture.GetPixel((int)textureRect.center.x, (int)textureRect.center.y);
+        // Refine alpha channel
+        color.a = 1f;
+        return color;
     }
 }
