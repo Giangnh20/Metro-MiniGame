@@ -58,14 +58,16 @@ public class ColorImage : MonoBehaviour
     
     public void ToWhiteColor()
     {
-        Material mat = grayscaleMaterial;
-        mat.SetFloat(GrayscaleAmount, 1f);
+//        Material mat = grayscaleMaterial;
+//        mat.SetFloat(GrayscaleAmount, 1f);
+        image.materialForRendering.SetFloat(GrayscaleAmount, 1f);
     }
 
     public void ToNormalColor()
     {
-        Material mat = grayscaleMaterial;
-        mat.SetFloat(GrayscaleAmount, 0f);
+//        Material mat = grayscaleMaterial;
+//        mat.SetFloat(GrayscaleAmount, 0f);
+        image.materialForRendering.SetFloat(GrayscaleAmount, 0f);
     }
 
     public void SetColorNumber(int index)

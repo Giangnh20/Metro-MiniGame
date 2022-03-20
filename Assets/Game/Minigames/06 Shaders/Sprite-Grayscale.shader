@@ -8,7 +8,16 @@ Shader "Sprites-GrayScale"
         _Color ("Tint", Color) = (1,1,1,1)
         [MaterialToggle] PixelSnap ("Pixel snap", Float) = 0
         _GrayscaleAmount ("Grayscale Amount", Range (0, 1)) = 1.0
+        
+        //
+        _StencilComp ("Stencil Comparison", Float) = 8
+        _Stencil ("Stencil ID", Float) = 0
+        _StencilOp ("Stencil Operation", Float) = 0
+        _StencilWriteMask ("Stencil Write Mask", Float) = 255
+        _StencilReadMask ("Stencil Read Mask", Float) = 255
+        _ColorMask ("Color Mask", Float) = 15
     }
+    
  
     SubShader
     {
@@ -26,6 +35,20 @@ Shader "Sprites-GrayScale"
         ZWrite Off
         Fog { Mode Off }
         Blend SrcAlpha OneMinusSrcAlpha
+ 
+         //
+         // Added to make it work with Unity Masks:
+        Stencil
+        {
+            Ref [_Stencil]
+            Comp [_StencilComp]
+            Pass [_StencilOp]
+            ReadMask [_StencilReadMask]
+            WriteMask [_StencilWriteMask]
+        }
+   
+        ColorMask [_ColorMask]
+        //
  
         Pass
         {

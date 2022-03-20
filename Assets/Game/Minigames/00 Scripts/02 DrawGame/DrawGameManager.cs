@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using UniRx;
 using UnityEngine;
@@ -21,6 +22,21 @@ public class DrawGameManager : Singleton<DrawGameManager>
     private List<ColorPicker> pickers;
     [SerializeField] private GameObject goLevelCompleted;
     [HideInInspector] public bool InitDone;
+
+    [SerializeField] private MouseInputArea mouseInputArea;
+    [SerializeField] private Button btnZoomIn;
+    [SerializeField] private Button btnZoomOut;
+    [SerializeField] private Slider sliderZoom;
+
+    private Transform objective;
+    private RectTransform objectiveRectTransform;
+    private Vector2 objectiveSize;
+    private const float ZOOM_MIN = 1f;
+    private const float ZOOM_MAX = 2f;
+    private const float ZOOM_STEP_MOUSE = 0.05f;
+    private const float ZOOM_STEP_BUTTON = 0.1f;
+    
+    
     
     // Start is called before the first frame update
     async void Start()
@@ -50,6 +66,9 @@ public class DrawGameManager : Singleton<DrawGameManager>
 
         var premiumColors = levelConfig.PremiumColors;
         var level = Instantiate(levelConfig.LevelPrefab, objectiveHolder).GetComponent<DrawGameLevel>();
+        objective = level.Objective;
+        objectiveRectTransform = objective.GetComponent<RectTransform>();
+        objectiveSize = objectiveRectTransform.rect.size;
         pickers = level.Pickers;
 
         for (int i = 0; i < pickers.Count; i++)
@@ -74,7 +93,17 @@ public class DrawGameManager : Singleton<DrawGameManager>
         
         await UniTask.DelayFrame(1);
         InitDone = true;
+        
+        // Add listeners
+        btnZoomIn.onClick.AddListener(BtnZoomInClicked);
+        btnZoomOut.onClick.AddListener(BtnZoomOutClicked);
+        sliderZoom.onValueChanged.AddListener(OnSlideValueChanged);
+        mouseInputArea.OnMouseWheelScroll += OnMouseWheelScroll;
+        mouseInputArea.OnMouseDrag += OnMouseDrag;
     }
+
+    
+
 
     private bool IsPremium(List<Color> premiums, Color tmpColor)
     {
@@ -104,6 +133,64 @@ public class DrawGameManager : Singleton<DrawGameManager>
         
     }
 
+    private void OnSlideValueChanged(float value)
+    {
+        var newScale = ZOOM_MIN + value;
+        newScale = Mathf.Clamp(newScale, ZOOM_MIN, ZOOM_MAX);
+        objective.DOScale(newScale * Vector3.one, 0.1f).SetEase(Ease.Flash);
+    }
+    
+
+    private void BtnZoomInClicked()
+    {
+        ZoomIn(ZOOM_STEP_BUTTON);
+    }
+    
+    private void BtnZoomOutClicked()
+    {
+        ZoomOut(ZOOM_STEP_BUTTON);
+    }
+
+    private void ZoomIn(float step)
+    {
+        var currentScale = objective.localScale;
+        var newScale = currentScale.x + step;
+        newScale = Mathf.Clamp(newScale, ZOOM_MIN, ZOOM_MAX);
+        objective.DOScale(newScale * Vector3.one, 0.1f).SetEase(Ease.Flash);
+        sliderZoom.value = newScale - ZOOM_MIN;
+    }
+
+    private void ZoomOut(float step)
+    {
+        var currentScale = objective.localScale;
+        var newScale = currentScale.x - step;
+        newScale = Mathf.Clamp(newScale, ZOOM_MIN, ZOOM_MAX);
+        objective.DOScale(newScale * Vector3.one, 0.1f).SetEase(Ease.Flash);
+        sliderZoom.value = newScale - ZOOM_MIN;
+    }
+    
+    private void OnMouseWheelScroll(float scrollValue)
+    {
+        if (scrollValue > 0)
+            ZoomIn(ZOOM_STEP_MOUSE);
+        else
+            ZoomOut(ZOOM_STEP_MOUSE);
+    }
+    
+    private void OnMouseDrag(Vector3 dragValue)
+    {
+        dragValue.z = 0f;
+        var currentPos = objective.position;
+        var newPos = currentPos + dragValue;
+        objective.position = newPos;
+
+//        var localPosition = objective.localPosition;
+//        var xValue = Mathf.Abs(objectiveSize.x / 2 * objective.localScale.x);
+//        var yValue = Mathf.Abs(objectiveSize.y / 2 * objective.localScale.y);
+//        var newX = Mathf.Clamp(localPosition.x, - xValue, xValue);
+//        var newY = Mathf.Clamp(localPosition.x, - yValue, yValue);
+//        objective.localPosition = new Vector3(newX, newY, 0f);
+    }
 
     
 //    // Update is called once per frame
