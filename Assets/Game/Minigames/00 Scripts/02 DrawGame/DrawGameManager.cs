@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
 using UniRx;
 using UnityEngine;
@@ -16,19 +17,15 @@ public class DrawGameManager : Singleton<DrawGameManager>
     [ShowIf("playInLocalMode")] [SerializeField] private ScriptableObject localLevelAsset;
     [HideIf("playInLocalMode")] [SerializeField] public string levelKey = "DrawLevel_0";
     public Color CurrentColor;
-    [SerializeField] private Transform pickerHolder;
-    [SerializeField] private ColorPicker prefabPicker;
     [SerializeField] private Transform objectiveHolder;
-
-    public Shader ShaderGUItext => Shader.Find("GUI/Text Shader");
-    public Shader ShaderSpritesDefault => Shader.Find("Sprites/Default");
     private List<ColorPicker> pickers;
-    public bool InitDone;
+    [SerializeField] private GameObject goLevelCompleted;
+    [HideInInspector] public bool InitDone;
     
     // Start is called before the first frame update
     async void Start()
     {
-        pickers = new List<ColorPicker>();
+//        pickers = new List<ColorPicker>();
         InitDone = false;
         DrawGameLevelConfig levelConfig;
         if (playInLocalMode)
@@ -51,45 +48,17 @@ public class DrawGameManager : Singleton<DrawGameManager>
             levelConfig = loadLevel as DrawGameLevelConfig;
         }
 
-        
-        var premiumColors = levelConfig.GetPremiumColors();
-        Instantiate(levelConfig.LevelPrefab, objectiveHolder);
+        var premiumColors = levelConfig.PremiumColors;
+        var level = Instantiate(levelConfig.LevelPrefab, objectiveHolder).GetComponent<DrawGameLevel>();
+        pickers = level.Pickers;
 
-        await Task.Delay(TimeSpan.FromSeconds(0.5f));
-        
-        var allCells = objectiveHolder.GetComponentsInChildren<ColorImage>().ToList();
-        var groupByColor = allCells.GroupBy(x => x.Color).ToList();
-
-        List<IDisposable> disposablesCounters = new List<IDisposable>();
-        
-        int colorIndex = -1;
-        foreach (var group in groupByColor)
+        for (int i = 0; i < pickers.Count; i++)
         {
-            int index = ++colorIndex;
-            var picker = Instantiate(prefabPicker, pickerHolder);
-            int total = group.Count();
-            Debug.LogError($"index: {colorIndex}, total: {total} -- {ColorUtility.ToHtmlStringRGBA(group.Key)}");
-            picker.SetColor(group.Key, colorIndex);
-            if (premiumColors.Contains(group.Key))
-                picker.SetLockedState(true);
-            
+            int index = i;
+            var picker = pickers[i];
+            bool isPremium = IsPremium(premiumColors, picker.Color);
+            picker.Populate(isPremium);
             picker.button.onClick.AddListener(()=> OnPickerSelected(index));
-            pickers.Add(picker);
-
-            foreach (var colorImage in @group)
-            {
-                colorImage.SetColorNumber(colorIndex);
-            }
-            
-            // Subcribe to count opened cells
-            group.Select(x => x.IsOpen).CombineLatest().Subscribe(value =>
-            {
-//                Debug.Log("Some cell open");
-                int opended = value.Count(val => val);
-                picker.UpdateProgress((float) opended/ total);
-                if (opended == total)
-                    picker.ShowCompletedState();
-            }).AddTo(disposablesCounters);
         }
 
         pickers.Select(p => p.IsCompleted).CombineLatest().Subscribe(value =>
@@ -97,21 +66,42 @@ public class DrawGameManager : Singleton<DrawGameManager>
             if (value.All(done => done))
             {
                 Debug.LogError("Level Completed");
+                goLevelCompleted.SetActive(true);
+                level.ShowFullColorObject();
             }
         });
         
         
-//        yield return null;
+        await UniTask.DelayFrame(1);
         InitDone = true;
+    }
+
+    private bool IsPremium(List<Color> premiums, Color tmpColor)
+    {
+        for (int i = 0; i < premiums.Count; i++)
+        {
+            if (tmpColor.CompareWithNoAlpha(premiums[i])) 
+                return true;
+        }
+        return false;
     }
 
     private void OnPickerSelected(int index)
     {
-        CurrentColor = pickers[index].Color;
-        foreach (var picker in pickers)
+        if (pickers[index].IsLocked.Value)
         {
-            picker.ShowSelectedState(picker.Color == CurrentColor);
+            pickers[index].ShowBuyUnlock(true);
         }
+        else
+        {
+            CurrentColor = pickers[index].Color;
+            foreach (var picker in pickers)
+            {
+                picker.ShowSelectedState(picker.Color == CurrentColor);
+                picker.ShowBuyUnlock(false);
+            }
+        }    
+        
     }
 
 

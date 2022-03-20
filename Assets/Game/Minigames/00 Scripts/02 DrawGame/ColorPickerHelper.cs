@@ -16,4 +16,13 @@ public static class ColorPickerHelper
         color.a = 1f;
         return color;
     }
+
+    public static bool CompareWithNoAlpha(this Color owner, Color secondColor)
+    {
+        Color tmpOwner = owner;
+        tmpOwner.a = 1f;
+        Color tmpSecondColor = secondColor;
+        tmpSecondColor.a = 1f;
+        return tmpOwner == tmpSecondColor;
+    }
 }

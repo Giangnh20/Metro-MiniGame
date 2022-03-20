@@ -14,18 +14,18 @@ public class ColorImage : MonoBehaviour
     public ReactiveProperty<bool> IsOpen = new ReactiveProperty<bool>();
 
     [SerializeField] private Image image;
-    [SerializeField] private Button button;
     [SerializeField] private TextMeshProUGUI txtNumber;
+    [SerializeField] private Button button;
+    public Button Button => button;
 
-    
-
-    private Material tmpMaterial;
+    private Material grayscaleMaterial;
+    private static readonly int GrayscaleAmount = Shader.PropertyToID("_GrayscaleAmount");
 
     private void Awake()
     {
-        Color = ColorPickerHelper.GetPixelColor(image.sprite);
-        tmpMaterial = Instantiate(image.material);
-        image.material = tmpMaterial;
+        //Color = ColorPickerHelper.GetPixelColor(image.sprite);
+        grayscaleMaterial = Instantiate(image.material);
+        image.material = grayscaleMaterial;
         
         if (image != null)
         {
@@ -36,7 +36,6 @@ public class ColorImage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-//        IsOpen = new ReactiveProperty<bool>();
         button?.onClick.AddListener(() =>
         {
 //            Debug.LogError($", colorSprite: {ColorUtility.ToHtmlStringRGBA(Color)}, CurrentColor: {ColorUtility.ToHtmlStringRGBA(DrawGameManager.Instance.CurrentColor)}, ");
@@ -48,28 +47,30 @@ public class ColorImage : MonoBehaviour
             }
         });
         
-        
-//        yield return new WaitUntil(()=> DrawGameManager.Instance.InitDone);
         ToWhiteColor();
+    }
+
+    public void Populate(int number, Color color, bool isLock)
+    {
+        this.Color = color;
+        SetColorNumber(number);
     }
     
     public void ToWhiteColor()
     {
-        Material mat = tmpMaterial;
-        mat.shader = DrawGameManager.Instance.ShaderGUItext;
-        image.color = Color.white;
+        Material mat = grayscaleMaterial;
+        mat.SetFloat(GrayscaleAmount, 1f);
     }
 
     public void ToNormalColor()
     {
-        Material mat = tmpMaterial;
-        mat.shader = DrawGameManager.Instance.ShaderSpritesDefault;;
-        image.color = Color.white;
+        Material mat = grayscaleMaterial;
+        mat.SetFloat(GrayscaleAmount, 0f);
     }
 
     public void SetColorNumber(int index)
     {
-        txtNumber.text = (index + 1).ToString();
+        txtNumber.text = index.ToString();
     }
     
 }

@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 299643be75dd36a4a960821c47c0c9be, type: 3}
   m_Name: DrawLevel_1
   m_EditorClassIdentifier: 
-  LevelPrefab: {fileID: 3530514374122975294, guid: 70fcb3889367edf43946cd26a9014cd2,
+  LevelPrefab: {fileID: 4057630717432891712, guid: 70fcb3889367edf43946cd26a9014cd2,
     type: 3}
-  PremiumColors: []
+  ListDrawColors: []
+  PremiumColors:
+  - {r: 0.7647059, g: 0.62352943, b: 0.88235295, a: 0}
