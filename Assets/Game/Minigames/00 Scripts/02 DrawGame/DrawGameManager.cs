@@ -35,6 +35,9 @@ public class DrawGameManager : Singleton<DrawGameManager>
     private float zoomMax = 2f;
     private float zoomStepMouse = 0.05f;
     private float zoomStepButton = 0.1f;
+    
+    private Vector3 dragOrigin;
+    private Vector3 distanceToObjective;
 
     protected override void Awake()
     {
@@ -186,15 +189,10 @@ public class DrawGameManager : Singleton<DrawGameManager>
             ZoomOut(zoomStepMouse);
     }
     
-
-    private bool isDragging = false;
-    private Vector3 dragOrigin;
-    private Vector3 distanceToObjective;
     private void OnMouseUpdate()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            isDragging = true;
             dragOrigin = Input.mousePosition;
             distanceToObjective = objective.transform.position - dragOrigin;
         }
@@ -207,8 +205,8 @@ public class DrawGameManager : Singleton<DrawGameManager>
             objective.position = diff;
             
             var localPosition = objective.localPosition;
-            var xValue = Mathf.Abs((mouseAreaRect.rect.width - objectiveSize.x * objective.localScale.x) / (2 ));
-            var yValue = Mathf.Abs((mouseAreaRect.rect.height - objectiveSize.y * objective.localScale.y) / (2 ));
+            var xValue = Mathf.Abs(mouseAreaRect.rect.width / 2 - objectiveSize.x / 2 * objective.localScale.x);
+            var yValue = Mathf.Abs(mouseAreaRect.rect.height / 2 - objectiveSize.y / 2 * objective.localScale.y);
             var newX = Mathf.Clamp(localPosition.x, - xValue, xValue);
             var newY = Mathf.Clamp(localPosition.y, - yValue, yValue);
             objective.localPosition = new Vector3(newX, newY, 0f);
