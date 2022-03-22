@@ -8,11 +8,12 @@ public class MouseInputArea : MonoBehaviour
 {
 
     public Action<float> OnMouseWheelScroll;
-    public Action<Vector3> OnMouseDrag;
+    public Action OnMouseUpdate;
 
     private bool isMouseOver = false;
     private Vector3 dragOrigin;
     private RectTransform _rect;
+    public RectTransform RectTransform => _rect;
     private bool IsPointerOverMe
     {
         get
@@ -36,30 +37,14 @@ public class MouseInputArea : MonoBehaviour
         if (!IsPointerOverMe)
             return;
         
-        
+        OnMouseUpdate?.Invoke();
+
         // Scroll wheel
         var scrollValue = Input.mouseScrollDelta.y;
         if (Math.Abs(scrollValue) > 0.01f)
         {
             OnMouseWheelScroll?.Invoke(scrollValue);
         }
-        
-        // Pan drag
-        PanDrag();
     }
 
-    private void PanDrag()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            dragOrigin = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        }
-
-        if (Input.GetMouseButton(0))
-        {
-            var current = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 diff = current - dragOrigin;
-            OnMouseDrag?.Invoke(diff);
-        }
-    }
 }

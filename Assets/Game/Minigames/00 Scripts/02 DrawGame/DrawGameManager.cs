@@ -28,16 +28,20 @@ public class DrawGameManager : Singleton<DrawGameManager>
     [SerializeField] private Button btnZoomOut;
     [SerializeField] private Slider sliderZoom;
 
+    private RectTransform mouseAreaRect;
     private Transform objective;
-    private RectTransform objectiveRectTransform;
     private Vector2 objectiveSize;
-    private const float ZOOM_MIN = 1f;
-    private const float ZOOM_MAX = 2f;
-    private const float ZOOM_STEP_MOUSE = 0.05f;
-    private const float ZOOM_STEP_BUTTON = 0.1f;
-    
-    
-    
+    private float zoomMin = 1f;
+    private float zoomMax = 2f;
+    private float zoomStepMouse = 0.05f;
+    private float zoomStepButton = 0.1f;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        mouseAreaRect = mouseInputArea.RectTransform;
+    }
+
     // Start is called before the first frame update
     async void Start()
     {
@@ -64,11 +68,14 @@ public class DrawGameManager : Singleton<DrawGameManager>
             levelConfig = loadLevel as DrawGameLevelConfig;
         }
 
+        zoomMin = levelConfig.ZoomMin;
+        zoomMax = levelConfig.ZoomMax;
+        zoomStepMouse = levelConfig.ZoomStepMouse;
+        zoomStepButton = levelConfig.ZoomStepButton;
         var premiumColors = levelConfig.PremiumColors;
         var level = Instantiate(levelConfig.LevelPrefab, objectiveHolder).GetComponent<DrawGameLevel>();
         objective = level.Objective;
-        objectiveRectTransform = objective.GetComponent<RectTransform>();
-        objectiveSize = objectiveRectTransform.rect.size;
+        objectiveSize = objective.GetComponent<RectTransform>().rect.size;
         pickers = level.Pickers;
 
         for (int i = 0; i < pickers.Count; i++)
@@ -94,12 +101,16 @@ public class DrawGameManager : Singleton<DrawGameManager>
         await UniTask.DelayFrame(1);
         InitDone = true;
         
+        //
+        sliderZoom.minValue = zoomMin;
+        sliderZoom.maxValue = zoomMax;
+        
         // Add listeners
         btnZoomIn.onClick.AddListener(BtnZoomInClicked);
         btnZoomOut.onClick.AddListener(BtnZoomOutClicked);
         sliderZoom.onValueChanged.AddListener(OnSlideValueChanged);
         mouseInputArea.OnMouseWheelScroll += OnMouseWheelScroll;
-        mouseInputArea.OnMouseDrag += OnMouseDrag;
+        mouseInputArea.OnMouseUpdate += OnMouseUpdate;
     }
 
     
@@ -135,64 +146,76 @@ public class DrawGameManager : Singleton<DrawGameManager>
 
     private void OnSlideValueChanged(float value)
     {
-        var newScale = ZOOM_MIN + value;
-        newScale = Mathf.Clamp(newScale, ZOOM_MIN, ZOOM_MAX);
+        var newScale = value;
+        newScale = Mathf.Clamp(newScale, zoomMin, zoomMax);
         objective.DOScale(newScale * Vector3.one, 0.1f).SetEase(Ease.Flash);
     }
     
 
     private void BtnZoomInClicked()
     {
-        ZoomIn(ZOOM_STEP_BUTTON);
+        ZoomIn(zoomStepButton);
     }
     
     private void BtnZoomOutClicked()
     {
-        ZoomOut(ZOOM_STEP_BUTTON);
+        ZoomOut(zoomStepButton);
     }
 
     private void ZoomIn(float step)
     {
         var currentScale = objective.localScale;
         var newScale = currentScale.x + step;
-        newScale = Mathf.Clamp(newScale, ZOOM_MIN, ZOOM_MAX);
-        objective.DOScale(newScale * Vector3.one, 0.1f).SetEase(Ease.Flash);
-        sliderZoom.value = newScale - ZOOM_MIN;
+        newScale = Mathf.Clamp(newScale, zoomMin, zoomMax);
+        sliderZoom.value = newScale;
     }
 
     private void ZoomOut(float step)
     {
         var currentScale = objective.localScale;
         var newScale = currentScale.x - step;
-        newScale = Mathf.Clamp(newScale, ZOOM_MIN, ZOOM_MAX);
-        objective.DOScale(newScale * Vector3.one, 0.1f).SetEase(Ease.Flash);
-        sliderZoom.value = newScale - ZOOM_MIN;
+        newScale = Mathf.Clamp(newScale, zoomMin, zoomMax);
+        sliderZoom.value = newScale;
     }
     
     private void OnMouseWheelScroll(float scrollValue)
     {
         if (scrollValue > 0)
-            ZoomIn(ZOOM_STEP_MOUSE);
+            ZoomIn(zoomStepMouse);
         else
-            ZoomOut(ZOOM_STEP_MOUSE);
+            ZoomOut(zoomStepMouse);
     }
     
-    private void OnMouseDrag(Vector3 dragValue)
+
+    private bool isDragging = false;
+    private Vector3 dragOrigin;
+    private Vector3 distanceToObjective;
+    private void OnMouseUpdate()
     {
-        dragValue.z = 0f;
-        var currentPos = objective.position;
-        var newPos = currentPos + dragValue;
-        objective.position = newPos;
+        if (Input.GetMouseButtonDown(0))
+        {
+            isDragging = true;
+            dragOrigin = Input.mousePosition;
+            distanceToObjective = objective.transform.position - dragOrigin;
+        }
+        
+        if (Input.GetMouseButton(0))
+        {
+            var current = Input.mousePosition;
+            Vector3 diff = current + distanceToObjective;
+            diff.z = 0f;
+            objective.position = diff;
+            
+            var localPosition = objective.localPosition;
+            var xValue = Mathf.Abs((mouseAreaRect.rect.width - objectiveSize.x * objective.localScale.x) / (2 ));
+            var yValue = Mathf.Abs((mouseAreaRect.rect.height - objectiveSize.y * objective.localScale.y) / (2 ));
+            var newX = Mathf.Clamp(localPosition.x, - xValue, xValue);
+            var newY = Mathf.Clamp(localPosition.y, - yValue, yValue);
+            objective.localPosition = new Vector3(newX, newY, 0f);
 
-//        var localPosition = objective.localPosition;
-//        var xValue = Mathf.Abs(objectiveSize.x / 2 * objective.localScale.x);
-//        var yValue = Mathf.Abs(objectiveSize.y / 2 * objective.localScale.y);
-//        var newX = Mathf.Clamp(localPosition.x, - xValue, xValue);
-//        var newY = Mathf.Clamp(localPosition.x, - yValue, yValue);
-//        objective.localPosition = new Vector3(newX, newY, 0f);
+        }
     }
 
-    
 //    // Update is called once per frame
 //    void Update()
 //    {

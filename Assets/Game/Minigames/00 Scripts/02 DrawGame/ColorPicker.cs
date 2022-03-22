@@ -62,7 +62,7 @@ public class ColorPicker : MonoBehaviour
 
     private void UpdateProgress(float percent)
     {
-        progress.fillAmount = percent;
+        progress.DOFillAmount(percent, 0.1f);
     }
 
     private void SetLockedState(bool isLock)
